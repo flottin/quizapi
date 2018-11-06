@@ -8,7 +8,7 @@ class Questions
 {
     private $em;
 
-    public function __construct ( ObjectManager $em )
+    public function __construct ( ObjectManager $em  = null)
     {
         $this->em = $em;
     }
@@ -23,5 +23,17 @@ class Questions
             ->getRepository ( Question::class )
             ->findBy ([], null, $limit);
 
+    }
+
+    /**
+     * @param string $str
+     * @param string $lang
+     * @return string
+     */
+    public function getLabel($str = '', $lang = 'en'){
+        if ($lang == 'fr'){
+            return $str . 'traduction : ' . $lang;
+        }
+        return $str . 'translate : ' .$lang;
     }
 }
