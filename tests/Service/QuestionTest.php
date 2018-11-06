@@ -35,7 +35,7 @@ class QuestionTest extends TestCase
         $this->assertEquals(count($result), 0);
     }
 
-    public function getObjectManager($questions){
+    private function getObjectManager($questions){
         // Now, mock the repository so it returns the mock of the employee
         $repository = $this->createMock(ObjectRepository::class);
         // use getMock() on PHPUnit 5.3 or below
@@ -53,6 +53,19 @@ class QuestionTest extends TestCase
             ->willReturn($repository);
 
         return $objectManager;
+    }
+
+    public function testLabel(){
+        $c = new Questions();
+        $res = $c->getLabel ('test', 'fr');
+        $this->assertEquals($res, 'testtraduction : fr');
+    }
+
+    public function testLabelOther(){
+        $c = new Questions();
+        $res = $c->getLabel ('test', 'en');
+
+        $this->assertEquals($res, 'testtranslate : en');
     }
 
 }
