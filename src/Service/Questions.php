@@ -34,6 +34,6 @@ class Questions
         if ($lang == 'fr'){
             return $str . 'traduction : ' . $lang;
         }
-        return $str . 'translate : ' .$lang;
+        return $str . 'translate : ' . $lang;
     }
 }
