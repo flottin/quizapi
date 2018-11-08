@@ -68,4 +68,83 @@ class QuestionTest extends TestCase
         $this->assertEquals($res, 'testtranslate : en');
     }
 
+    public function testPaginate(){
+        $c = new Questions();
+        $res = $c->page (19, 20);
+
+        $this->assertEquals($res, 1);
+    }
+
+    public function testPaginateOne(){
+        $c = new Questions();
+        $res = $c->page (20, 20);
+
+        $this->assertEquals($res, 1);
+    }
+
+    public function testPaginateSecondTwo(){
+        $c = new Questions();
+        $res = $c->page (40, 20);
+
+        $this->assertEquals($res, 2);
+    }
+
+    public function testPaginateTwo(){
+        $c = new Questions();
+        $res = $c->page (21, 20);
+
+        $this->assertEquals($res, 2);
+    }
+
+    public function testPaginateTen(){
+        $c = new Questions();
+        $res = $c->page (199, 20);
+
+        $this->assertEquals($res, 10);
+    }
+
+    public function testPaginateZero(){
+        $c = new Questions();
+        $res = $c->page (0, 20);
+
+        $this->assertTrue($res === 0);
+    }
+
+    public function testPaginateZeroDiv(){
+        $c = new Questions();
+        $actual = $c->page (10, 0);
+        $expected = 0;
+        $this->assertEquals($expected, $actual);
+    }
+
+    public function testPages(){
+        $c = new Questions();
+        $actual = $c->paginate (3, 8, 10);
+
+        $expected = [
+            1 => false,
+            2 => false,
+            3 => true,
+            4 => false,
+            5 => false,
+            6 => false,
+            7 => false,
+            8 => false,
+        ];
+        $this->assertEquals($expected, $actual);
+
+    }
+
+    public function testPagesTwenty(){
+        $c = new Questions();
+        $actual = $c->paginate (61, 62, 5);
+
+        $expected = [
+            61 => true,
+            62 => false,
+
+        ];
+        $this->assertEquals($expected, $actual);
+
+    }
 }
