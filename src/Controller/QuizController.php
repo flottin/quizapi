@@ -17,4 +17,14 @@ class QuizController extends AbstractController
         $questions = $questionsService->getQuestions ($limit);
         return $this->json($questions);
     }
+
+
+    public function clean($str, $category)
+    {
+        $res        = trim(str_ireplace ($category, '', $str));
+        $res        = str_ireplace ('-', '', $res);
+        $results    = explode('_', $res);
+        $last       = array_pop($results);
+        return implode(' ', $results) . ' < ' . $last;
+    }
 }
