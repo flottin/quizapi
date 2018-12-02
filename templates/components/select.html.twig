@@ -1,0 +1,251 @@
+
+
+
+<div id="app">
+    <task-list :tasks="tasks" :templates="templates"></task-list>
+
+ok
+
+    <task-list :tasks="tasks2" :templates="templates_two"></task-list>
+</div>
+
+<template id="task-list">
+    <section class="tasks" >
+
+        <div class="tasks__new input-group">
+
+            <input type="mail"
+                   class="input-group-field"
+                   v-model="newTask"
+                   @keyup.enter="addTask"
+                   placeholder="Ajout mail "
+                   @focus="show"
+
+            >
+
+            {#<button @click="addTask"#}
+            {#class="buttonAdd"#}
+            {#>#}
+            {#+#}
+            {#</button>#}
+
+
+            <span style="font-size: 14px; color: grey; margin: 0px 0px -10px -30px">
+  <i @click="toggle"
+     class="fas"
+     v-bind:class="{ 'fa-angle-down': angleDown,'fa-angle-up': angleUp }"
+  ></i>
+
+</span>
+        </div>
+
+
+
+        <transition-group name="fade" tag="ul" class="tasks__list no-bullet"  v-show="isShowing" >
+            <task-item v-for="(task, index) in tasks"
+                       @remove="removeTask(index)"
+
+                       :task="task"
+                       :key="task.id"
+            ></task-item>
+        </transition-group>
+    </section>
+</template>
+
+<template id="task-item">
+    <li class="tasks__item"  >
+        <button :class="className"
+                @click.self="$emit('complete')"
+                v-text="task.title"
+
+        >
+
+        </button>
+
+
+        <span style="font-size: 10px; color: grey; margin: 0px 0px -10px -30px">
+  <i @click="$emit('remove')"
+     class="fas fa-times"
+  ></i>
+
+</span>
+
+    </li>
+</template>
+
+<script>
+    Vue.component('task-list', {
+        template: '#task-list',
+        props: {
+            tasks: {default: []},
+            templates: null
+
+        },
+        data() {
+
+
+console.log(this.templates)
+
+            return {
+                newTask: '',
+                ok: true,
+                isShowing:false,
+                message: 'close',
+                angleUp: false,
+                angleDown: true
+            };
+        },
+        computed: {
+            incomplete() {
+                return this.tasks.filter(this.inProgress).length;
+            }
+        },
+        methods: {
+            addTask(id) {
+                console.log(this.templates)
+                if (this.newTask) {
+                    let id= this.tasks.length + 1;
+                    let mail= this.newTask;
+                    console.log(this.validateEmail(mail))
+                    this.tasks.push({
+                        id: id,
+                        title: this.newTask,
+                        completed: false
+                    });
+
+                    $.ajax({
+                        url: "/mailing/add/",
+                        data: {
+                            mail: mail,
+                            id : id,
+                            client: 'place'
+                        },
+                        success: function( result ) {
+                        }
+                    });
+                    this.newTask = '';
+                }
+            },
+            completeTask(task) {
+                task.completed = ! task.completed;
+            },
+            removeTask(index) {
+                console.log(index)
+                console.log(this.tasks[index].title)
+                this.tasks.splice(index, 1);
+
+                $.ajax({
+                    url: "/mailing/delete/",
+                    data: {
+                        mail: index,
+                        client: 'place'
+                    },
+                    success: function( result ) {
+                    }
+                });
+            },
+            clearCompleted() {
+                this.tasks = this.tasks.filter(this.inProgress);
+            },
+            clearAll() {
+                this.tasks = [];
+            },
+
+            inProgress(task) {
+                return ! this.isCompleted(task);
+            },
+            isCompleted(task) {
+                return task.completed;
+            },
+            show() {
+                this.isShowing = true;
+                this.angleDown = false
+                this.angleUp = true
+                if (this.message == 'close')
+                    this.message = 'open'
+                else
+                    this.message = 'close'
+
+            },
+            toggle() {
+                this.isShowing ^= true;
+
+                if (this.isShowing == false){
+                    this.angleDown = true
+                    this.angleUp = false
+
+                } else {
+                    this.angleDown = false
+                    this.angleUp = true
+
+                }
+
+            },
+            validateEmail(email) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(String(email).toLowerCase());
+            }
+        }
+    });
+
+
+    Vue.component('task-item', {
+        template: '#{{ taskItem }}',
+        props: ['task'],
+        computed: {
+            className() {
+                let classes = ['tasks__item__toggle'];
+                if (this.task.completed) {
+                    classes.push('tasks__item__toggle--completed');
+                }
+                return classes.join(' ');
+            }
+        },
+        data() {
+
+
+
+            return {
+
+
+                test: 'task-item'
+            }
+        },
+    });
+
+    new Vue({
+        el: '#app',
+        data: {
+            tasks: [
+                {
+                    id: 0,
+                    title: 'Make todo list',
+                    completed: false
+                },
+                {
+                    id: 1,
+                    title: 'Go skydiving',
+                    completed: false
+                }
+            ],
+            tasks2: [
+                {
+                    id: 0,
+                    title: 'Make todo list 2',
+                    completed: false
+                },
+                {
+                    id: 1,
+                    title: 'Go skydiving 2',
+                    completed: false
+                }
+            ],
+            placehoder_one: '',
+            dropdown: 'ok',
+            templates: 'test'
+            ,
+            templates_two: 'test-two'
+        }
+
+    });
+</script>
