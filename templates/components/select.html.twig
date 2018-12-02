@@ -2,11 +2,11 @@
 
 
 <div id="app">
-    <task-list :tasks="tasks" :templates="templates"></task-list>
+    <task-list :tasks="tasksAuto" :templates="templates"></task-list>
 
 ok
 
-    <task-list :tasks="tasks2" :templates="templates_two"></task-list>
+    <task-list :tasks="tasksNormal" :templates="templates_two"></task-list>
 </div>
 
 <template id="task-list">
@@ -84,8 +84,6 @@ ok
         data() {
 
 
-console.log(this.templates)
-
             return {
                 newTask: '',
                 ok: true,
@@ -101,6 +99,7 @@ console.log(this.templates)
             }
         },
         methods: {
+
             addTask(id) {
                 console.log(this.templates)
                 if (this.newTask) {
@@ -115,6 +114,7 @@ console.log(this.templates)
 
                     $.ajax({
                         url: "/mailing/add/",
+                        type: "POST",
                         data: {
                             mail: mail,
                             id : id,
@@ -202,12 +202,7 @@ console.log(this.templates)
             }
         },
         data() {
-
-
-
             return {
-
-
                 test: 'task-item'
             }
         },
@@ -216,36 +211,42 @@ console.log(this.templates)
     new Vue({
         el: '#app',
         data: {
-            tasks: [
-                {
-                    id: 0,
-                    title: 'Make todo list',
-                    completed: false
-                },
-                {
-                    id: 1,
-                    title: 'Go skydiving',
-                    completed: false
-                }
-            ],
-            tasks2: [
-                {
-                    id: 0,
-                    title: 'Make todo list 2',
-                    completed: false
-                },
-                {
-                    id: 1,
-                    title: 'Go skydiving 2',
-                    completed: false
-                }
-            ],
-            placehoder_one: '',
-            dropdown: 'ok',
-            templates: 'test'
-            ,
-            templates_two: 'test-two'
-        }
+            tasksAuto: [],
+            tasksNormal: [],
+            placehoderAuto: 'Ajout mail auto',
+            placehoderNormal: 'Ajout mail normal',
+        
+        },
+
+    created () {
+       this.buildFolders()
+    },
+        methods: {
+            buildFolders: function () {
+
+                this.ajaxCall('auto')
+                this.ajaxCall('normal')
+
+
+            },
+            ajaxCall: function(type){
+                var self = this
+                $.ajax({
+                    url: "/mailing/list/place/" + type,
+                    success: function( result ){
+                    console.log(result)
+                    if (type == 'auto'){
+                        self.tasksAuto = result
+                    }
+
+                    else {
+                        self.tasksNormal = result
+                    }
+
+                    }
+                });
+            }
+    }
 
     });
 </script>
