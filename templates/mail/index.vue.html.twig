@@ -1,0 +1,151 @@
+<script src="/vue.js"></script>
+
+<script src="/jquery.min.js"></script>
+<link rel="stylesheet" href="/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<style>
+    ul{
+        padding: 0px;
+        margin:0px;
+    }
+
+    body{
+        background-color: #abc;
+    }
+
+    *, h1, button
+    {
+        font-family: 'Nunito', sans-serif;
+    }
+
+    .fade-enter-active, .fade-leave-active{
+        transition: opacity .2s
+    }
+
+    .fade-enter, .fade-leave-active
+    {
+        opacity: 0
+    }
+
+    .tasks
+    {
+        width: 50%;
+        max-width: 45rem;
+        padding: 1em;
+        margin :1em auto;
+        overflow: auto;
+        background-color: white;
+        box-shadow: 0px .25rem 1rem red
+    }
+
+    .input-group-field{
+        width: 267px;
+        height: 30px;
+        outline: none;
+    }
+    .tasks__list
+    {
+        clear: both
+
+    }
+
+    .tasks__item
+    {
+        margin-bottom: .5em;
+        position: relative;
+        padding: 0px;
+        margin: 0px;
+        outline: none;
+    }
+
+    .tasks__item__toggle
+    {
+        background-color:ghostwhite;
+        height:30px;
+        cursor: pointer;
+        width :267px;
+        text-align: left;
+        padding: .85em 2.25em .85em 1em;
+        /*background-color: rgba(black, .05)
+        border :1px solid rgba(black, .1)*/
+        outline: none;
+    }
+
+    .tasks__item__toggle:hover{
+        background-color: #E8E8E8;
+
+    }
+
+
+    .tasks__item__toggle--completed
+    {
+        text-decoration: line-through;
+        background-color: green;
+        border-color: green;
+    }
+
+    .tasks__item__toggle--completed:hover{
+        background-color:green;
+        border-color:green;
+    }
+    button:active {
+        border-style: outset;
+    }
+    :active { border-style: outset;}
+    .buttonAdd
+    {
+
+        background-color:#2199e8;
+        color:white;
+
+        height: 30px;
+        right: 0;
+        top: 10px;
+        width: 50px;
+        outline: none;
+    }
+
+
+    .buttonExpand
+    {
+        background-color:ghostwhite;
+        color:black;
+        border: 0px;
+        height: 20px;
+        width: 50px;
+        margin: -57px;
+
+        outline: none;
+    }
+
+
+    .tasks__item__remove
+    {
+        border: 0px;
+        background-color:ghostwhite;
+        color:grey;
+        font-weight: bold;
+        margin: -35px;
+        height: 20px;
+        top: 1px;
+        right: 0;
+        width: 20px
+    }
+    .tasks__item__remove i
+    {
+        vertical-align: middle
+    }
+    li{
+        text-decoration : none;
+        list-style-type:none
+    }
+    .angleDown{
+
+    }
+
+</style>
+{% set vars = {'app':'one', 'taskList': 'task-list', 'taskItem': 'task-item'} %}
+
+{% include 'components/select.html.twig' with vars %}
+
+
+

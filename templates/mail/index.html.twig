@@ -1,154 +1,360 @@
-<script src="/vue.js"></script>
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<script src="/jquery.min.js"></script>
-<link rel="stylesheet" href="/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<style>
-    ul{
-        padding: 0px;
-        margin:0px;
-    }
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 
-    body{
-        background-color: #abc;
-    }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    *, h1, button
-    {
-        font-family: 'Nunito', sans-serif;
-    }
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-    .fade-enter-active, .fade-leave-active{
-        transition: opacity .2s
-    }
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <!--[if IE 8]><script src="js/es5.js"></script><![endif]-->
+    <script src="js/jquery.min.js"></script>
+    <script src="../dist/js/standalone/selectize.js"></script>
+    <script src="js/index.js"></script>
+    <style type="text/css">
+        .selectize-control.contacts .selectize-input > div {
+            padding: 1px 10px;
+            font-size: 13px;
+            font-weight: normal;
+            -webkit-font-smoothing: auto;
+            color: #f7fbff;
+            text-shadow: 0 1px 0 rgba(8,32,65,0.2);
+            background: #2183f5;
+            background: -moz-linear-gradient(top, #2183f5 0%, #1d77f3 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2183f5), color-stop(100%,#1d77f3));
+            background: -webkit-linear-gradient(top,  #2183f5 0%,#1d77f3 100%);
+            background: -o-linear-gradient(top,  #2183f5 0%,#1d77f3 100%);
+            background: -ms-linear-gradient(top,  #2183f5 0%,#1d77f3 100%);
+            background: linear-gradient(to bottom,  #2183f5 0%,#1d77f3 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2183f5', endColorstr='#1d77f3',GradientType=0 );
+            border: 1px solid #0f65d2;
+            -webkit-border-radius: 999px;
+            -moz-border-radius: 999px;
+            border-radius: 999px;
+            -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+            -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+            box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+        }
+        .selectize-control.contacts .selectize-input > div.active {
+            background: #0059c7;
+            background: -moz-linear-gradient(top, #0059c7 0%, #0051c1 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0059c7), color-stop(100%,#0051c1));
+            background: -webkit-linear-gradient(top,  #0059c7 0%,#0051c1 100%);
+            background: -o-linear-gradient(top,  #0059c7 0%,#0051c1 100%);
+            background: -ms-linear-gradient(top,  #0059c7 0%,#0051c1 100%);
+            background: linear-gradient(to bottom,  #0059c7 0%,#0051c1 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0059c7', endColorstr='#0051c1',GradientType=0 );
+            border-color: #0051c1;
+        }
+        .selectize-control.contacts .selectize-input > div .email {
+            opacity: 0.8;
+        }
+        .selectize-control.contacts .selectize-input > div .name + .email {
+            margin-left: 5px;
+        }
+        .selectize-control.contacts .selectize-input > div .email:before {
+            content: '<';
+        }
+        .selectize-control.contacts .selectize-input > div .email:after {
+            content: '>';
+        }
+        .selectize-control.contacts .selectize-dropdown .caption {
+            font-size: 12px;
+            display: block;
+            color: #a0a0a0;
+        }
+        .content{
+            width: 500px;
+            margin: auto;
+        }
 
-    .fade-enter, .fade-leave-active
-    {
-        opacity: 0
-    }
+        .checkbox{
+            width: 500px;
 
-    .tasks
-    {
-        width: 50%;
-        max-width: 45rem;
-        padding: 1em;
-        margin :1em auto;
-        overflow: auto;
-        background-color: white;
-        box-shadow: 0px .25rem 1rem red
-    }
+        }
 
-    .input-group-field{
-        width: 267px;
-        height: 30px;
-        outline: none;
-    }
-    .tasks__list
-    {
-        clear: both
-
-    }
-
-    .tasks__item
-    {
-        margin-bottom: .5em;
-        position: relative;
-        padding: 0px;
-        margin: 0px;
-        outline: none;
-    }
-
-    .tasks__item__toggle
-    {
-        background-color:ghostwhite;
-        height:30px;
-        cursor: pointer;
-        width :267px;
-        text-align: left;
-        padding: .85em 2.25em .85em 1em;
-        /*background-color: rgba(black, .05)
-        border :1px solid rgba(black, .1)*/
-        outline: none;
-    }
-
-    .tasks__item__toggle:hover{
-        background-color: #E8E8E8;
-
-    }
-
-
-    .tasks__item__toggle--completed
-    {
-        text-decoration: line-through;
-        background-color: green;
-        border-color: green;
-    }
-
-    .tasks__item__toggle--completed:hover{
-        background-color:green;
-        border-color:green;
-    }
-    button:active {
-        border-style: outset;
-    }
-    :active { border-style: outset;}
-    .buttonAdd
-    {
-
-        background-color:#2199e8;
-        color:white;
-
-        height: 30px;
-        right: 0;
-        top: 10px;
-        width: 50px;
-        outline: none;
-    }
+        .contacts{
+            width: 500px;
+            margin: 0;
 
 
-    .buttonExpand
-    {
-        background-color:ghostwhite;
-        color:black;
-        border: 0px;
-        height: 20px;
-        width: 50px;
-        margin: -57px;
+        }
+        #confirm{
+            display: none;
 
-        outline: none;
-    }
+        }
+    </style>
+</head>
+
+<div class="content">
+    <form action="#">
+
+    <div class="control-group">
+        <label for="checkbox"><input type="checkbox" id="checkbox"> Envoi automatique </label>
+        <select id="select-to" class="contacts" placeholder="Ajout de mails automatiques..."></select>
+
+    </div>
+
+    <div class="control-group">
+        <label for="select-to-two">Envoi de mail manuel à:</label>
+        <select id="select-to-two" class="contacts" placeholder="Ajout de mails ..."></select>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" id="confirm" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-primary" id="deleteBtn">supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <script>
+                // <select id="select-to"></select>
+
+                // var REGEX_EMAIL = '([a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*@' +
+                //     '(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)';
+
+                let REGEX_EMAIL = '(.*)';
+
+                var formatName = function(item) {
+                    return $.trim((item.first_name || '') + ' ' + (item.last_name || ''));
+                };
+
+                let sel = {
+                    persist: false,
+                    onDelete: function(values, ok = false) {
+                       return confirm(values.length > 1 ? 'Are you sure you want to remove these ' + values.length + ' items?' : 'Are you sure you want to remove "' + values[0] + '"?');
+                    },
+                    maxItems: null,
+                    valueField: 'email',
+                    labelField: 'name',
+                    searchField: ['first_name', 'last_name', 'email'],
+                    sortField: [
+                        {field: 'first_name', direction: 'asc'},
+                        {field: 'last_name', direction: 'asc'}
+                    ],
+                    // options: [
+                    //     {email: 'nikola@tesla.com', first_name: 'Nikola', last_name: 'Tesla'},
+                    //     {email: 'brian@thirdroute.com', first_name: 'Brian', last_name: 'Reavis'},
+                    //     {email: 'someone@gmail.com'}
+                    // ],
+                    render: {
+                        item: function(item, escape) {
+                            var name = formatName(item);
+                            return '<div>' +
+                                (name ? '<span class="name">' + escape(name) + '</span>' : '') +
+                                (item.email ? '<span class="email">' + escape(item.email) + '</span>' : '') +
+                                '</div>';
+                        },
+                        option: function(item, escape) {
+                            var name = formatName(item);
+                            var label = name || item.email;
+                            var caption = name ? item.email : null;
+                            return '<div>' +
+                                '<span class="label">' + escape(label) + '</span>' +
+                                (caption ? '<span class="caption">' + escape(caption) + '</span>' : '') +
+                                '</div>';
+                        }
+                    },
+                    createFilter: function(input) {
+                        return true
+                        var regexpA = new RegExp('^' + REGEX_EMAIL + '$', 'i');
+                        var regexpB = new RegExp('^([^<]*)\<' + REGEX_EMAIL + '\>$', 'i');
+                        return regexpA.test(input) || regexpB.test(input);
+                    },
+                    create: function(input) {
+                        if ((new RegExp('^' + REGEX_EMAIL + '$', 'i')).test(input)) {
+                            return {email: input};
+                        }
+                        var match = input.match(new RegExp('^([^<]*)\<' + REGEX_EMAIL + '\>$', 'i'));
+                        if (match) {
+                            var name       = $.trim(match[1]);
+                            var pos_space  = name.indexOf(' ');
+                            var first_name = name.substring(0, pos_space);
+                            var last_name  = name.substring(pos_space + 1);
+
+                            return {
+                                email: match[2],
+                                first_name: first_name,
+                                last_name: last_name
+                            };
+                        }
+                        alert('Invalid email address.');
+                        return false;
+                    }
+                };
+
+                $('#select-to').selectize(sel);
 
 
-    .tasks__item__remove
-    {
-        border: 0px;
-        background-color:ghostwhite;
-        color:grey;
-        font-weight: bold;
-        margin: -35px;
-        height: 20px;
-        top: 1px;
-        right: 0;
-        width: 20px
-    }
-    .tasks__item__remove i
-    {
-        vertical-align: middle
-    }
-    li{
-        text-decoration : none;
-        list-style-type:none
-    }
-    .angleDown{
 
-    }
+                $('#select-to-two').selectize(sel);
 
-</style>
-{% set vars = {'app':'one', 'taskList': 'task-list', 'taskItem': 'task-item'} %}
 
-{% include 'components/select.html.twig' with vars %}
+                $( "#target" ).click(function() {
+                    console.log( "Handler for .click() called." );
+                });
+            </script>
 
 
 
+    <button type="button" class="btn btn-info btn-lg"  id="target">
+        enregistrer
+    </button>
+        <br><br>
 
-<div class="content">ok ok ok o k ok o k ok o k ok o k ok o ko
-    ok o k ok o k o ko k o k o</div>
+        <script>
+            $( "#target" ).click(function() {
+
+
+
+                console.log($('#select-to').val())
+                console.log($('#select-to-two').val())
+
+            });
+        </script>
+
+    </form>
+
+
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="mail1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Hello,
+                        <br><br>
+                        le contenu de mon mail 1
+                        <br><br>merci,
+                        <br>Atexo
+                    </div>
+                    <div class="modal-footer">
+
+                        <input type="hidden" value="1"  id="mailId">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary saveBtn" id="saveBtn">Save changes</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="mail2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Hello,
+                        <br><br>
+                        le contenu de mon mail 2
+                        <br><br>merci,
+                        <br>Atexo
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" value="2" id="mailId">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary saveBtn" id="saveBtn">Save changes</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    <script>
+        $( ".saveBtn" ).click(function() {
+
+
+
+            console.log($(this).parent().find('#mailId').val())
+
+        });
+    </script>
+
+
+    <table class="table table-striped ">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td> <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#mail1">
+                    envoi
+                </button></td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td> <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#mail2">
+                    envoi
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+</div>
+
+</body>
+</html>
