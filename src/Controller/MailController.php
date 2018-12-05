@@ -2,6 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Client;
+use App\Entity\Mailing;
+use App\Entity\Type;
+use App\Service\History;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -10,7 +15,28 @@ use Symfony\Component\HttpFoundation\RequestStack;
 class MailController extends AbstractController
 {
 private $request;
-    public function __construct(RequestStack $request){
+    public function __construct(RequestStack $request, \Swift_Mailer $mailer, History $historyService, ObjectManager $em){
+
+
+
+$this->em = $em;
+
+        $message = (new \Swift_Message('Hello Email'))
+            ->setFrom('flottin@gmail.com')
+            ->setTo('flottin@gmail.com')
+            ->setBody(
+                'okko',
+                'text/html'
+            )
+        ;
+
+        $mailer->send($message);
+
+
+
+
+
+
         $this->request = $request;
     }
     /**
@@ -27,15 +53,23 @@ private $request;
     }
 
     /**
-     * @Route("/mailing/add/", methods={"POST"})
+     * @Route("/mailing/add/{clientName}", methods={"POST"})
      */
-    public function add()
+    public function add($clientName)
     {
-        $mail = $this->request->getCurrentRequest()->get('mail');
-        $id = $this->request->getCurrentRequest()->get('id');
-        $client = $this->request->getCurrentRequest()->get('client');
-        $res = [$id, $mail, $client];
-        return $this->json($res);
+        $mailing = new \App\Service\Mailing($this->em);
+        $client = $this->em->getRepository (Client::class)->findOneBy(['name' => $clientName]);
+        $datas = json_decode(file_get_contents('php://input'), true);
+
+        foreach ($datas as $name => $data){
+            $type = str_replace('mailing', '', strtolower($name));
+            $type = $this->em->getRepository (Type::class)->findOneBy(['type' => $type]);
+            if (!empty($type)){
+                $mailing->setMailings($data, $client, $type);
+            }
+        }
+
+        return $this->json(true);
 
     }
 
@@ -73,7 +107,6 @@ if ('auto' === $type){
 
 ];
 }
-
 
 
         return $this->json($res);
