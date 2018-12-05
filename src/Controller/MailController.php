@@ -19,16 +19,16 @@ private $request;
 
         $this->em = $em;
 
-        $message = (new \Swift_Message('Hello Email'))
-            ->setFrom('flottin@gmail.com')
-            ->setTo('flottin@gmail.com')
-            ->setBody(
-                'okko',
-                'text/html'
-            )
-        ;
-
-        $mailer->send($message);
+//        $message = (new \Swift_Message('Hello Email'))
+//            ->setFrom('flottin@gmail.com')
+//            ->setTo('flottin@gmail.com')
+//            ->setBody(
+//                'okko',
+//                'text/html'
+//            )
+//        ;
+//
+//        $mailer->send($message);
 
         $this->request = $request;
     }
@@ -40,10 +40,28 @@ private $request;
         //$questionsService = $this->container->get('Questions');
         //$questions = $questionsService->getQuestions ($limit);
         //return $this->json($questions);
+
+        $history = $this->em->getRepository (\App\Entity\History::class)->findAll();
         return $this->render('mail/index.html.twig', array(
-            'articles' => [],
+            'history' => $history,
         ));
     }
+
+    /**
+     * @Route("/mail2/{clientName}")
+     */
+    public function index2($clientName = null)
+    {
+        $client = $this->em->getRepository (Client::class)->findOneBy(['name' => $clientName]);
+
+        $history = $this->em->getRepository (\App\Entity\History::class)->findBy(['client' => $client]);
+        //$mailings = $this->em->getRepository (Mailing::class)->findBy(['client' => $client]);
+        return $this->render('mail/index.html.twig', array(
+            'history' => $history,
+            //'mailings' => $mailings,
+        ));
+    }
+
 
     /**
      * @Route("/mailing/add/{clientName}", methods={"POST"})

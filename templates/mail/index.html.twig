@@ -163,18 +163,9 @@
                     }
                 };
 
-
-
-
-
-
-
                 $('#mailingAuto').selectize(sel);
 
-
-
                 $('#mailingManuel').selectize(sel);
-
 
                 $( "#target" ).click(function() {
                     console.log( "Handler for .click() called." );
@@ -224,8 +215,10 @@
 
 
 
+
+    {% for ind, row in history %}
         <!-- Modal -->
-        <div class="modal fade" id="mail1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="mail{{ ind }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -237,35 +230,7 @@
                     <div class="modal-body">
                         Hello,
                         <br><br>
-                        le contenu de mon mail 1
-                        <br><br>merci,
-                        <br>Atexo
-                    </div>
-                    <div class="modal-footer">
-
-                        <input type="hidden" value="1"  id="mailId">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary saveBtn" id="saveBtn">Save changes</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="mail2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Hello,
-                        <br><br>
-                        le contenu de mon mail 2
+                        le contenu de mon mail {{ ind }}
                         <br><br>merci,
                         <br>Atexo
                     </div>
@@ -278,59 +243,38 @@
             </div>
 
         </div>
-
+    {% endfor %}
 
     <script>
         $( ".saveBtn" ).click(function() {
-
-
-
             console.log($(this).parent().find('#mailId').val())
-
         });
     </script>
-
-
     <table class="table table-striped ">
         <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Date</th>
+            <th scope="col">Path</th>
+            <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
+        {% for ind, row in history %}
         <tr>
             <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td> <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#mail1">
-                    envoi
-                </button></td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td> <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#mail2">
+            <td>{{ row.getDateTime()|date('Y-m-d') }}</td>
+            <td>{{ row.getPdfPath() }}</td>
+            <td>
+                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#mail{{ ind }}">
                     envoi
                 </button>
             </td>
         </tr>
+
+        {% endfor %}
         </tbody>
     </table>
-
-
-
-
 </div>
-
 </body>
 </html>
