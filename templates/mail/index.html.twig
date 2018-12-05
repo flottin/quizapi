@@ -18,12 +18,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/stylesheet.css">
     <!--[if IE 8]><script src="js/es5.js"></script><![endif]-->
-    <script src="js/jquery.min.js"></script>
-    <script src="../dist/js/standalone/selectize.js"></script>
-    <script src="js/index.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/dist/js/standalone/selectize.js"></script>
+    <script src="/js/index.js"></script>
     <style type="text/css">
         .selectize-control.contacts .selectize-input > div {
             padding: 1px 10px;
@@ -102,15 +102,18 @@
 <div class="content">
     <form action="#">
 
+
     <div class="control-group">
         <label for="checkbox"><input type="checkbox" id="checkbox"> Envoi automatique </label>
-        <input type="text" id="mailingAuto" class="contacts" placeholder="Ajout de mails automatiques..." value="flottin@gmail.com,test@test.ts">
+        <input type="text" id="mailingAuto" class="contacts" placeholder="Ajout de mails automatiques..."
+               value="{{ listAuto }}">
 
     </div>
 
     <div class="control-group">
         <label for="mailingManuel">Envoi de mail manuel à:</label>
-        <input type="text" id="mailingManuel" class="contacts" placeholder="Ajout de mails ..." value="mail@gmail.com,test@test.ts">
+        <input type="text" id="mailingManuel" class="contacts" placeholder="Ajout de mails ..."
+               value="{{ listManuel }}">
 
 
 
@@ -211,33 +214,27 @@
     </form>
 
 
-
-
-
-
-
     {% for ind, row in history %}
         <!-- Modal -->
         <div class="modal fade" id="mail{{ ind }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Mail numéro : {{ ind }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        Hello,
-                        <br><br>
-                        le contenu de mon mail {{ ind }}
-                        <br><br>merci,
-                        <br>Atexo
+                        {{ row.getMailMessage() }}
                     </div>
+
                     <div class="modal-footer">
-                        <input type="hidden" value="2" id="mailId">
+
+                        <input type="hidden" value="{{ ind }}" id="mailId">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Mail envoyé</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary saveBtn" id="saveBtn">Save changes</button>
+                        <button type="button" class="btn btn-primary saveBtn" id="saveBtn">Envoi Mail</button>
                     </div>
                 </div>
             </div>
@@ -245,11 +242,7 @@
         </div>
     {% endfor %}
 
-    <script>
-        $( ".saveBtn" ).click(function() {
-            console.log($(this).parent().find('#mailId').val())
-        });
-    </script>
+
     <table class="table table-striped ">
         <thead class="thead-dark">
         <tr>
@@ -276,5 +269,15 @@
         </tbody>
     </table>
 </div>
+
+
+<script>
+    $( ".saveBtn" ).click(function() {
+        $(this).hide();
+        console.log($(this).parent().find('#mailId').val())
+    });
+</script>
+
+
 </body>
 </html>

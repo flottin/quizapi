@@ -32,33 +32,36 @@ private $request;
 
         $this->request = $request;
     }
-    /**
-     * @Route("/mail/{client}")
-     */
-    public function index($client = null)
-    {
-        //$questionsService = $this->container->get('Questions');
-        //$questions = $questionsService->getQuestions ($limit);
-        //return $this->json($questions);
 
-        $history = $this->em->getRepository (\App\Entity\History::class)->findAll();
-        return $this->render('mail/index.html.twig', array(
-            'history' => $history,
-        ));
-    }
 
     /**
-     * @Route("/mail2/{clientName}")
+     * @Route("/mail/{clientName}")
      */
-    public function index2($clientName = null)
+    public function index($clientName = null)
     {
         $client = $this->em->getRepository (Client::class)->findOneBy(['name' => $clientName]);
 
         $history = $this->em->getRepository (\App\Entity\History::class)->findBy(['client' => $client]);
-        //$mailings = $this->em->getRepository (Mailing::class)->findBy(['client' => $client]);
+        $mailings = $this->em->getRepository (Mailing::class)->findBy(['client' => $client]);
+
+        $listAuto = [];
+        $listManuel = [];
+        foreach($mailings as $mail){
+            if($mail->getType()->getType() === 'auto'){
+                $listAuto [] = $mail->getMail();
+
+            } else {
+                $listManuel [] = $mail->getMail();
+
+            }
+        }
+
+        $auto = implode(',', $listAuto);
+        $manuel = implode(',', $listManuel);
         return $this->render('mail/index.html.twig', array(
             'history' => $history,
-            //'mailings' => $mailings,
+            'listManuel' => $manuel,
+            'listAuto' => $auto,
         ));
     }
 
