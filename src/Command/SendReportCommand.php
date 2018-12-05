@@ -1,11 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: flottin
- * Date: 05/12/2018
- * Time: 01:21
- */
-// src/Command/CreateUserCommand.php
+// src/Command/SendReportCommand.php
 namespace App\Command;
 
 use App\Entity\Mailing;
@@ -40,6 +34,11 @@ class SendReportCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        //get message
+
+        //get mailing list
+
+        //get pdf
         $output->writeln ('<info>Client : '.$input->getArgument ('client').'</info>');
         $output->writeln ('<info>------------------------------</info>');
         $type = $this->em->getRepository (Type::class)->findBy(['type'=>'auto']);
@@ -50,12 +49,13 @@ class SendReportCommand extends Command
             self::sendMail($email);
         }
         $output->writeln ('<info>------------------------------</info>');
-
     }
 
     public function sendMail($email)
     {
+        // get template
 
+        // push mail with attachement
     }
 
     public function generate()

@@ -27,14 +27,33 @@ class Mailing
 
     }
 
-    public function setMailings(Array $mailings, Client $client, Type $type)
-    {
-        foreach ($mailings as $mailing) {
-            self::setMailing ( $client, $mailing, $type );
+    public function save(Array $datas, Client $client){
+        foreach ($datas as $name => $data){
+            $type = str_replace('mailing', '', strtolower($name));
+            $type = $this->em->getRepository (Type::class)->findOneBy(['type' => $type]);
+            if (!empty($type)){
+                self::setMailings($data, $client, $type);
+            }
         }
         $this->em->flush();
     }
 
+    public function setMailings(String $mailings, Client $client, Type $type)
+    {
+        $mails = explode(',', $mailings);
+        self::remove($client, $type);
+        foreach ($mails as $mailing) {
+            self::setMailing ( $client, $mailing, $type );
+        }
+    }
+
+    public function remove(Client $client, Type $type){
+        $criterias = ['client' => $client, 'type' => $type];
+        $mailings = $this->em->getRepository (\App\Entity\Mailing::class)->findBy($criterias);
+        foreach ($mailings as $mailing){
+            $this->em->remove($mailing);
+        }
+    }
 
     public function setMailing(Client $client, String $mail, Type $type, $flush = false)
     {

@@ -3,6 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="mailing",uniqueConstraints={@ORM\UniqueConstraint(name="search_idx", columns={"client_id", "mail", "type"})})
+ */
+class ECommerceProduct
+{
+}
 
 /**
  * @ORM\Entity
@@ -33,6 +40,8 @@ class Mailing
      * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      */
     private $type;
+
+
 
     /**
      * @return mixed

@@ -17,9 +17,7 @@ class MailController extends AbstractController
 private $request;
     public function __construct(RequestStack $request, \Swift_Mailer $mailer, History $historyService, ObjectManager $em){
 
-
-
-$this->em = $em;
+        $this->em = $em;
 
         $message = (new \Swift_Message('Hello Email'))
             ->setFrom('flottin@gmail.com')
@@ -31,11 +29,6 @@ $this->em = $em;
         ;
 
         $mailer->send($message);
-
-
-
-
-
 
         $this->request = $request;
     }
@@ -60,15 +53,7 @@ $this->em = $em;
         $mailing = new \App\Service\Mailing($this->em);
         $client = $this->em->getRepository (Client::class)->findOneBy(['name' => $clientName]);
         $datas = json_decode(file_get_contents('php://input'), true);
-
-        foreach ($datas as $name => $data){
-            $type = str_replace('mailing', '', strtolower($name));
-            $type = $this->em->getRepository (Type::class)->findOneBy(['type' => $type]);
-            if (!empty($type)){
-                $mailing->setMailings($data, $client, $type);
-            }
-        }
-
+        $mailing->save ($datas, $client);
         return $this->json(true);
 
     }
@@ -93,21 +78,17 @@ $this->em = $em;
         $id = "id";
 
         $res = [
-        ['id' => 'O', 'title' => 'mail'],
-        ['id' => '1', 'title' => 'mail1'],
+            ['id' => 'O', 'title' => 'mail'],
+            ['id' => '1', 'title' => 'mail1'],
+        ];
 
-
-    ];
-if ('auto' === $type){
-    $res = [
-    ['id' => 'O', 'title' => 'mail auto'],
-    ['id' => '1', 'title' => 'mail1 auto'],
-    ['id' => '2', 'title' => 'mail2 auto'],
-
-
-];
-}
-
+        if ('auto' === $type){
+            $res = [
+                ['id' => 'O', 'title' => 'mail auto'],
+                ['id' => '1', 'title' => 'mail1 auto'],
+                ['id' => '2', 'title' => 'mail2 auto'],
+            ];
+        }
 
         return $this->json($res);
 
