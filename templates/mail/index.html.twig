@@ -1,283 +1,2318 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- saved from url=(0048)https://rapports-production-mpe.local-trust.com/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/stylesheet.css">
-    <!--[if IE 8]><script src="js/es5.js"></script><![endif]-->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/dist/js/standalone/selectize.js"></script>
-    <script src="/js/index.js"></script>
-    <style type="text/css">
-        .selectize-control.contacts .selectize-input > div {
-            padding: 1px 10px;
-            font-size: 13px;
-            font-weight: normal;
-            -webkit-font-smoothing: auto;
-            color: #f7fbff;
-            text-shadow: 0 1px 0 rgba(8,32,65,0.2);
-            background: #2183f5;
-            background: -moz-linear-gradient(top, #2183f5 0%, #1d77f3 100%);
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2183f5), color-stop(100%,#1d77f3));
-            background: -webkit-linear-gradient(top,  #2183f5 0%,#1d77f3 100%);
-            background: -o-linear-gradient(top,  #2183f5 0%,#1d77f3 100%);
-            background: -ms-linear-gradient(top,  #2183f5 0%,#1d77f3 100%);
-            background: linear-gradient(to bottom,  #2183f5 0%,#1d77f3 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2183f5', endColorstr='#1d77f3',GradientType=0 );
-            border: 1px solid #0f65d2;
-            -webkit-border-radius: 999px;
-            -moz-border-radius: 999px;
-            border-radius: 999px;
-            -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
-            -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
-            box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+    <title>    Rapport de production
+    </title>
+    <link href="./Rapport de production_files/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="./Rapport de production_files/bootstrap.min.css" rel="stylesheet">
+    <link href="./Rapport de production_files/site.min.css" rel="stylesheet">
+    <link href="./Rapport de production_files/styles.css" rel="stylesheet">
+    <link href="./Rapport de production_files/jquery-ui.css" rel="stylesheet">
+    <link href="./Rapport de production_files/bootstrap-select.min.css" rel="stylesheet">
+    <link href="./Rapport de production_files/google-family.css" rel="stylesheet">
+    <style>
+        .vl {
+            border-left: 1px solid lightgrey;
+            height: 60px;
+            float: left;
         }
-        .selectize-control.contacts .selectize-input > div.active {
-            background: #0059c7;
-            background: -moz-linear-gradient(top, #0059c7 0%, #0051c1 100%);
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0059c7), color-stop(100%,#0051c1));
-            background: -webkit-linear-gradient(top,  #0059c7 0%,#0051c1 100%);
-            background: -o-linear-gradient(top,  #0059c7 0%,#0051c1 100%);
-            background: -ms-linear-gradient(top,  #0059c7 0%,#0051c1 100%);
-            background: linear-gradient(to bottom,  #0059c7 0%,#0051c1 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0059c7', endColorstr='#0051c1',GradientType=0 );
-            border-color: #0051c1;
+        .l{
+            float: left;
+            width:120px;
         }
-        .selectize-control.contacts .selectize-input > div .email {
-            opacity: 0.8;
+        .r{
+            float: left;
+            width:200px;a
+        padding-top: 8px;
         }
-        .selectize-control.contacts .selectize-input > div .name + .email {
-            margin-left: 5px;
-        }
-        .selectize-control.contacts .selectize-input > div .email:before {
-            content: '<';
-        }
-        .selectize-control.contacts .selectize-input > div .email:after {
-            content: '>';
-        }
-        .selectize-control.contacts .selectize-dropdown .caption {
-            font-size: 12px;
-            display: block;
-            color: #a0a0a0;
-        }
-        .content{
-            width: 500px;
-            margin: auto;
-        }
-
-        .checkbox{
-            width: 500px;
-
-        }
-
-        .contacts{
-            width: 500px;
-            margin: 0;
-
-
-        }
-        #confirm{
-            display: none;
-
+        #download{
+            width: 100px
         }
     </style>
-</head>
+    <link rel="icon" type="image/x-icon" href="https://rapports-production-mpe.local-trust.com/bundles/app/images/favicon.png">
+    <link rel="stylesheet" href="./Rapport de production_files/jquery-ui(1).css">
 
-<div class="content">
-    <form action="#">
-
-
-    <div class="control-group">
-        <label for="checkbox"><input type="checkbox" id="checkbox"> Envoi automatique </label>
-        <input type="text" id="mailingAuto" class="contacts" placeholder="Ajout de mails automatiques..."
-               value="{{ listAuto }}">
-
-    </div>
-
-    <div class="control-group">
-        <label for="mailingManuel">Envoi de mail manuel à:</label>
-        <input type="text" id="mailingManuel" class="contacts" placeholder="Ajout de mails ..."
-               value="{{ listManuel }}">
+    <script src="./Rapport de production_files/jquery-1.12.4.js"></script>
+    <script src="./Rapport de production_files/jquery-ui.js"></script>
+    <script type="text/javascript" src="./Rapport de production_files/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./Rapport de production_files/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="./Rapport de production_files/nav.js"></script>
 
 
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" id="confirm" data-toggle="modal" data-target="#exampleModal">
-            Launch demo modal
-        </button>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                        <button type="button" class="btn btn-primary" id="deleteBtn">supprimer</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-            <script>
-                var REGEX_EMAIL = '([a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*@' +
-                    '(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)';
+    <link rel="stylesheet" href="./Rapport de production_files/selectize.default.css"><script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script></head>
+<body cz-shortcut-listen="true">
 
 
-                sel = {
-                    delimiter: ',',
-                    persist: false,
-                    onDelete: function(values, ok = false) {
-                        return confirm(values.length > 1 ? 'Êtes-vous certains de vouloir supprimer ' + values.length + ' mails ?' : 'Êtes-vous certain de vouloir supprimer "' + values[0] + '"?');
-                    },
-                    createFilter: function(input) {
-
-                        var regexpA = new RegExp('^' + REGEX_EMAIL + '$', 'i');
-                        var regexpB = new RegExp('^([^<]*)\<' + REGEX_EMAIL + '\>$', 'i');
-                        return regexpA.test(input) || regexpB.test(input);
-                    },
-                    create: function(input) {
-                        return {
-                            value: input,
-                            text: input
-                        }
-                    }
-                };
-
-                $('#mailingAuto').selectize(sel);
-
-                $('#mailingManuel').selectize(sel);
-
-                $( "#target" ).click(function() {
-                    console.log( "Handler for .click() called." );
-                });
-            </script>
-
-
-
-    <button type="button" class="btn btn-info btn-lg"  id="target">
-        enregistrer
-    </button>
-        <br><br>
-
-        <script>
-
-            var client = 'place';
-
-
-            $( "#target" ).click(function() {
-
-                $.ajax({
-
-                    type: "POST",
-                    url: "/mailing/add/"+client,
-                    // The key needs to match your method's input parameter (case-sensitive).
-                    data: JSON.stringify({ mailingAuto: $('#mailingAuto').val(), mailingManuel: $('#mailingManuel').val() }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(data){
-                        //alert(data);
-                        },
-                    failure: function(errMsg) {
-                        //alert(errMsg);
-                    }
-                });
-
-                console.log($('#select-to').val())
-                console.log($('#select-to-two').val())
-
-            });
-        </script>
-
-    </form>
-
-
-    {% for ind, row in history %}
-        <!-- Modal -->
-        <div class="modal fade" id="mail{{ ind }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Mail numéro : {{ ind }}</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        {{ row.getMailMessage() }}
-                    </div>
-
-                    <div class="modal-footer">
-
-                        <input type="hidden" value="{{ ind }}" id="mailId">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Mail envoyé</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary saveBtn" id="saveBtn">Envoi Mail</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    {% endfor %}
-
-
-    <table class="table table-striped ">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Date</th>
-            <th scope="col">Path</th>
-            <th scope="col">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for ind, row in history %}
-        <tr>
-            <th scope="row">1</th>
-            <td>{{ row.getDateTime()|date('Y-m-d') }}</td>
-            <td>{{ row.getPdfPath() }}</td>
-            <td>
-                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#mail{{ ind }}">
-                    envoi
-                </button>
-            </td>
-        </tr>
-
-        {% endfor %}
-        </tbody>
-    </table>
+<div style="background-color: black; padding: 10px">
+    <select id="clients">
+        <option value="/place" selected="">place</option>
+    </select>
 </div>
 
 
-<script>
-    $( ".saveBtn" ).click(function() {
-        $(this).hide();
-        console.log($(this).parent().find('#mailId').val())
-    });
-</script>
+<nav role="navigation" class="navbar navbar-light background-color-blue" style="background-color: #20507E;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="https://rapports-production-mpe.local-trust.com/#" class="navbar-brand"><b>Statut de la supervision - PLACE</b></a>
+        </div>
+
+    </div>
+
+</nav>
+
+<!--header-->
+<div class="container-fluid">
+    <!--documents-->
+    <form class="form" action="https://rapports-production-mpe.local-trust.com/#" id="indicateurs_form" method="post">
+        <div class="col-xs-12 col-sm-12 content">
+            <div class="panel panel-default">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-info" id="indicateurs">
+                            <div class="panel-heading">
+                                <b>Indicateurs du rapport de production automatisé</b>
+                            </div>
+                            <div class="panel-body">
+
+                                <!-- Titres -->
+                                <div class="margin-bottom-10">
+                                    <div class="alert alert-success" id="indics_success" hidden="">
+                                        <p>Les modifications on bien été faites.</p>
+                                    </div>
+
+                                    <div class="alert alert-danger" id="indics_fail" hidden="">
+                                        <p>Une erreur s'est produite.</p>
+                                    </div>
+
+                                    <div class="champs_clients">
+                                        <table class="table table-bordered margin-bottom-20" id="table_services">
+                                            <thead>
+                                            <tr class="active">
+                                                <th colspan="5" class="text-center">Champs client</th>
+                                            </tr>
+                                            <tr class="active">
+                                                <th>Intitulé</th>
+                                                <th>Valeur</th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+
+                                            <tr>
+                                                <td> Client</td>
+                                                <td><input type="text" name="clientConfig" value="MINEFI AIFE" style="width: 100%"></td>
+                                            </tr>
+                                            <tr>
+                                                <td> Nom du projet (long)</td>
+                                                <td><input type="text" name="projectLong" value="Projet PLACE-ORME (2016-2020)" style="width: 100%"></td>
+                                            </tr>
+                                            <tr>
+                                                <td> Nom du projet (court)</td>
+                                                <td><input type="text" name="projectCourt" value="PLACE/ORME" style="width: 100%"></td>
+                                            </tr>
+                                            <tr>
+                                                <td> Nom du contrat</td>
+                                                <td><input type="text" name="contrat" value="Marché n°1200043382 notifié le 12 mai 2016" style="width: 100%"></td>
+                                            </tr>
+                                            </tbody></table>
+                                    </div>
+
+                                    <label for="message">Indicateurs et faits marquants du
+                                        <!-- Sélection de la date -->
+                                        <input type="text" class="form-control datepicker hasDatepicker" name="message-date" id="date_message_picker" value="22-12-2018"> :
+                                    </label>
+                                </div>
+
+                                <!-- Tableau de services -->
+                                <table class="table table-bordered margin-bottom-20" id="table_services">
+                                    <thead>
+                                    <tr class="active">
+                                        <th colspan="5" class="text-center">Rapport de production PLACE/ORME du <span class="date">22-12-2018</span></th>
+                                    </tr>
+                                    <tr class="active">
+                                        <th>N</th>
+                                        <th>Indicateur</th>
+                                        <th>Outil</th>
+                                        <th>Contrôle</th>
+                                        <th>SIMA</th>
+                                    </tr>
+                                    </thead>
 
 
-</body>
-</html>
+                                    <tbody><tr class="active">
+                                        <td>1</td>
+                                        <td>Indicateurs de disponibilité de PLACE et ORME</td>
+                                        <td>Zabbix</td>
+                                        <td><select class="select_indics" id="select_status_1" name="status[]">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                <option selected="">Non vérifié</option>
+                                                <option>OK</option>
+                                                <option>Non OK</option>
+
+
+                                            </select></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="active">
+                                        <td>2</td>
+                                        <td>Performances par transactions</td>
+                                        <td>Zabbix</td>
+                                        <td><select class="select_indics" id="select_status_2" name="status[]">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                <option selected="">Non vérifié</option>
+                                                <option>OK</option>
+                                                <option>Non OK</option>
+
+
+                                            </select></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="active">
+                                        <td>3</td>
+                                        <td>Indicateurs sur les traitements batch effectués dans la nuit</td>
+                                        <td>Rundeck/Cron</td>
+                                        <td><select class="select_indics" id="select_status_3" name="status[]">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                <option selected="">Non vérifié</option>
+                                                <option>OK</option>
+                                                <option>Non OK</option>
+
+
+                                            </select></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="active">
+                                        <td>4</td>
+                                        <td>Indicateurs sur le traitement des flux avec les applications interfacées</td>
+                                        <td>Ping supervisé dans Zabbix</td>
+                                        <td><select class="select_indics" id="select_status_4" name="status[]">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                <option selected="">Non vérifié</option>
+                                                <option>OK</option>
+                                                <option>Non OK</option>
+
+
+                                            </select></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="active">
+                                        <td>5</td>
+                                        <td>Indicateurs de fonctionnement de la plateforme au moment de l'envoi du rapport</td>
+                                        <td>Zabbix</td>
+                                        <td><select class="select_indics" id="select_status_5" name="status[]">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                <option selected="">Non vérifié</option>
+                                                <option>OK</option>
+                                                <option>Non OK</option>
+
+
+                                            </select></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="active">
+                                        <td>6</td>
+                                        <td>Indicateurs sur la réalisation des sauvegardes</td>
+                                        <td>Lsyncd/Rsync</td>
+                                        <td><select class="select_indics" id="select_status_6" name="status[]">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                <option selected="">Non vérifié</option>
+                                                <option>OK</option>
+                                                <option>Non OK</option>
+
+
+                                            </select></td>
+                                        <td></td>
+                                    </tr>
+
+
+                                    </tbody></table>
+
+                                <!-- On passe la date en hidden -->
+                                <input type="hidden" name="timestamp" id="timestamp_message" value="1537164000">
+                                <div class="alert alert-warning" role="alert">
+                                    <b>Mention ajoutée dans le rapport du jour J</b> et supprimée automatiquement la
+                                    nuit à J+1 à 7h00 pour remise à 0 pour le nouveau rapport de J+1
+
+                                </div>
+
+                                <textarea class="form-control" id="messageQuotidien" name="messageQuotidien">Pas de fait marquant pour ce rapport.</textarea>
+                                <br>
+                                <!-- Bouton de validation -->
+                                <div class="text-center">
+                                    <input type="hidden" id="client" name="client" value="place">
+                                    <button type="submit" class="btn btn-info margin-top-10" id="msg-submit">Enregistrer</button>
+                                </div>
+                                <br>
+                                <div class="alert alert-warning" role="alert">
+                                    <b>Rubrique strictement interne</b> – elle ne donne pas lieu à champ de fusion, elle ne va pas dans le rapport, elle n’est jamais effacée par un automate.
+                                    C’est une rubrique de texte seul, qui est effacée manuellement par un chef de projet ATEXO quand le contenu n’est plus pertinent.
+
+                                </div>
+                                <textarea class="form-control" id="messagePermanent" name="messagePermanent">Commentaire interne ATEXO :
+1) Reprendre la phrase suivante en dec 2018 et janv 2019 :
+A noter, les tableaux Chorus et Atlas présentent parfois une valeur erronée de "Poids des flux / archives transmis" (2 048 Mo), liée à un champ en base de données dont la valeur est bornée. Un correctif est planifié pour début 2019.
+(commentaire LMA)</textarea>
+
+
+                                <br>
+
+                                <!-- Bouton de validation -->
+                                <div class="text-center">
+                                    <input type="hidden" id="client" name="client" value="place">
+                                    <button type="submit" class="btn btn-info margin-top-10" id="msg-submit">Enregistrer</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <b>Générer un rapport de production</b>
+                            </div>
+                            <div class="panel-body">
+
+                                <!-- Choix des dates -->
+                                <p class="text-info"><b>Rubrique "Indicateurs de disponibilité et Infrastructure" :</b></p>
+                                <label for="datetimepicker1">Du </label>
+                                <input type="text" class="datepicker form-control hasDatepicker" id="date_picker_1" value="21-12-2018">
+                                <label for="datetimepicker2"> au </label>
+                                <input type="text" class="datepicker form-control hasDatepicker" id="date_picker_2" value="22-12-2018">
+
+                                <!-- Inputs cachés contenant les timestamps -->
+                                <input type="hidden" id="timestamp_begin_sla" name="timestamp_begin_sla" value="1545375600">
+                                <input type="hidden" id="timestamp_end_sla" name="timestamp_end_sla" value="1545462000">
+                                <br><br><br>
+                                <!-- Infos pour l'utilisateur -->
+                                <strong>Edition du 22-12-2018 à 08:00 :</strong> <br><br>
+                                <div class="buttonsPanel">
+                                    <div class="l">
+
+
+                                        <!-- Submit pdf -->
+                                        <div class="text-center" style="padding:10px;float:left;">
+                                            <a href="https://rapports-production-mpe.local-trust.com/pdf/place/true" target="_blank" class="btn btn-primary" title="Télécharger le rapport en PDF" id="download"><span class="glyphicon glyphicon-download"></span> PDF</a>
+                                        </div>
+                                    </div>
+                                    <div class="r">
+                                        <strong>Regénérer le rapport du jour avec MAJ uniquement de la page de garde</strong>
+                                    </div>
+                                </div>
+
+                                <div class="l">
+
+
+                                    <!-- Submit pdf -->
+                                    <div class="text-center" style="padding:10px;float:left;">
+                                        <a href="https://rapports-production-mpe.local-trust.com/pdf/place" target="_blank" class="btn btn-primary btn-danger" title="Télécharger le rapport en PDF" id="download"><span class="glyphicon glyphicon-download"></span>
+                                            PDF</a>
+                                    </div>
+                                </div>
+                                <div class="r">
+                                    <strong>
+                                        Regénérer intégralement le rapport du jour avec MAJ de toutes les rubriques</strong>
+                                </div>
+                            </div>
+
+
+                            <b>Problèmes et actions identifiés :</b>
+                            Décallage de J-1 sur certains tableaux "Interfaces" : Relancer le cron  "Supervision interfaces", ce qui permet de rendre les données à nouveau disponibles.
+
+                            <br><br>
+                            Générer le rapport à nouveau : (une fois que le ou les crons sont relancés) : retirer le "true" de l'URL appelée par le bouton PDF
+                            <br>[En pratique :
+                            <a href="https://rapports-production-mpe.local-trust.com/pdf/place" target="_blank">https://rapports-production-mpe.local-trust.com/pdf/place</a>]
+                            <br>&nbsp;
+                        </div>
+                        <!-- mailing list -->
+
+                        <script src="./Rapport de production_files/selectize.js"></script>
+                        <script src="./Rapport de production_files/index.js"></script>
+
+                        <style type="text/css">
+                            .selectize-control.contacts .selectize-input > div {
+                                padding: 1px 10px;
+                                font-size: 13px;
+                                font-weight: normal;
+                                -webkit-font-smoothing: antialiased;
+                                color: #f7fbff;
+                                text-shadow: 0 1px 0 rgba(8,32,65,0.2);
+                                background: #2183f5;
+                                background: -moz-linear-gradient(top, #2183f5 0%, #1d77f3 100%);
+                                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2183f5), color-stop(100%,#1d77f3));
+                                background: -webkit-linear-gradient(top,  #2183f5 0%,#1d77f3 100%);
+                                background: -o-linear-gradient(top,  #2183f5 0%,#1d77f3 100%);
+                                background: -ms-linear-gradient(top,  #2183f5 0%,#1d77f3 100%);
+                                background: linear-gradient(to bottom,  #2183f5 0%,#1d77f3 100%);
+                                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2183f5', endColorstr='#1d77f3',GradientType=0 );
+                                border: 1px solid #0f65d2;
+                                -webkit-border-radius: 999px;
+                                -moz-border-radius: 999px;
+                                border-radius: 999px;
+                                -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+                                -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+                                box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+                            }
+                            .selectize-control.contacts .selectize-input > div.active {
+                                background: #0059c7;
+                                background: -moz-linear-gradient(top, #0059c7 0%, #0051c1 100%);
+                                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0059c7), color-stop(100%,#0051c1));
+                                background: -webkit-linear-gradient(top,  #0059c7 0%,#0051c1 100%);
+                                background: -o-linear-gradient(top,  #0059c7 0%,#0051c1 100%);
+                                background: -ms-linear-gradient(top,  #0059c7 0%,#0051c1 100%);
+                                background: linear-gradient(to bottom,  #0059c7 0%,#0051c1 100%);
+                                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0059c7', endColorstr='#0051c1',GradientType=0 );
+                                border-color: #0051c1;
+                            }
+                            .selectize-control.contacts .selectize-input > div .email {
+                                opacity: 0.8;
+                            }
+                            .selectize-control.contacts .selectize-input > div .name + .email {
+                                margin-left: 5px;
+                            }
+                            .selectize-control.contacts .selectize-input > div .email:before {
+                                content: '<';
+                            }
+                            .selectize-control.contacts .selectize-input > div .email:after {
+                                content: '>';
+                            }
+                            .selectize-control.contacts .selectize-dropdown .caption {
+                                font-size: 12px;
+                                display: block;
+                                color: #a0a0a0;
+                            }
+
+
+                            .checkbox{
+                                width: 500px;
+
+                            }
+
+                            .contacts{
+
+                                margin: 0;
+
+
+                            }
+                            #confirm{
+                                display: none;
+
+                            }
+
+
+
+                            /* ON/OFF Switch */
+                            .onoffswitch {
+                                position: relative;
+                                width: 55px;
+                                display: inline-block;
+                                font-size: 80%;
+                            }
+                            .onoffswitch .onoffswitch-label {
+                                display: block;
+                                overflow: hidden;
+                                cursor: pointer;
+                                border: 1px solid hsl(0, 0%, 90%);
+                                -moz-border-radius: 20px;
+                                -webkit-border-radius: 20px;
+                                border-radius: 20px;
+                                margin: 0;
+                            }
+                            .onoffswitch .onoffswitch-inner {
+                                width: 200%;
+                                margin-left: -100%;
+                                -webkit-transition: margin 0.15s ease-in-out;
+                                -o-transition: margin 0.15s ease-in-out;
+                                -moz-transition: margin 0.15s ease-in-out;
+                                transition: margin 0.15s ease-in-out;
+                            }
+                            .onoffswitch .onoffswitch-inner:before,
+                            .onoffswitch .onoffswitch-inner:after {
+                                float: left;
+                                width: 50%;
+                                height: 24px;
+                                padding: 0;
+                                line-height: 24px;
+                                font-size: 80%;
+                                color: hsl(0, 0%, 100%);
+                                font-weight: normal;
+                                -moz-box-sizing: border-box;
+                                -webkit-box-sizing: border-box;
+                                box-sizing: border-box;
+                            }
+                            .onoffswitch .onoffswitch-inner:before {
+                                content: "ON";
+                                padding-left: 10px;
+                                background-color: hsl(203, 100%, 39.1569%);
+                                color: hsl(0, 0%, 100%);
+                            }
+                            .onoffswitch .onoffswitch-inner:after {
+                                content: "OFF";
+                                padding-right: 10px;
+                                background-color: hsl(0, 0%, 98%);
+                                color: hsl(0, 0%, 24%);
+                                text-align: right;
+                            }
+                            .onoffswitch .onoffswitch-switch {
+                                width: 22px;
+                                height: 22px;
+                                margin: 0;
+                                background: hsl(0, 0%, 100%);
+                                box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+                                -moz-border-radius: 50%;
+                                -webkit-border-radius: 50%;
+                                border-radius: 50%;
+                                position: absolute;
+                                top: 2px;
+                                bottom: 0;
+                                right: 35px;
+                                -webkit-transition: right 0.15s ease-in-out;
+                                -o-transition: right 0.15s ease-in-out;
+                                -moz-transition: right 0.15s ease-in-out;
+                                transition: right 0.15s ease-in-out;
+                            }
+                            .toggle-group {
+                                position: relative;
+                                height: 27px;
+                                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                                top: 50%;
+                                width: 100%;
+
+                                margin-top: -13.5px;
+                            }
+                            .toggle-group input[type=checkbox] {
+                                position: absolute;
+                                left: 10px;
+                                display:none;
+                            }
+                            .toggle-group input[type=checkbox]:checked ~ .onoffswitch .onoffswitch-label .onoffswitch-inner {
+                                margin-left: 0;
+                            }
+                            .toggle-group input[type=checkbox]:checked ~ .onoffswitch .onoffswitch-label .onoffswitch-switch {
+                                right: 1px;
+                                box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+                            }
+                            .toggle-group input[type=checkbox]:focus ~ .onoffswitch {
+                                outline: thin dotted #333;
+                                outline: 0;
+                            }
+                            .toggle-group label {
+                                position: absolute;
+                                cursor: pointer;
+
+                                display: inline-block;
+                                text-align: left;
+                                line-height: 24px;
+                                width: 100%;
+                                z-index: 1;
+                                height: 24px;
+                                font-weight: 200;
+                            }
+                            /* ==== Accessibility ===== */
+                            .aural {
+                                clip: rect(1px, 1px, 1px, 1px);
+                                height: 1px;
+                                overflow: hidden;
+                                position: absolute;
+                                width: 1px;
+                            }
+                            .aural:focus {
+                                clip: rect(0, 0, 0, 0);
+                                font-size: 1em;
+                                height: auto;
+                                outline: thin dotted;
+                                position: static !important;
+                                width: auto;
+                                overflow: visible;
+                            }
+                            .left{
+                                float:left;
+                                height: 20px;
+                            }
+                            .right{
+                                vertical-align: middle;
+                                padding:0px 0px 0px 65px;
+                                height: 30px;
+                            }
+                            .control-group{
+                                clear:both;
+                            }
+                            .swichText{
+
+                                margin : 0;
+                            }
+
+                            #mailSent{
+                                display: none;
+                                width: 150px;
+                            }
+                            #saveBtn{
+
+                                width: 150px;
+                            }
+                            .btn-secondary{
+                                width: 150px
+                            }
+                            .btn-sm{
+                                width: 100px
+                            }
+                        </style>
+
+
+                        <div>
+                            <div class="left">
+                                <div class="toggle-group">
+                                    <input type="checkbox" name="on-off-switch" id="on-off-switch" checked="" tabindex="1">
+                                    <label for="on-off-switch">
+
+                                    </label>
+                                    <div class="onoffswitch pull-right" aria-hidden="true">
+                                        <div class="onoffswitch-label">
+                                            <div class="onoffswitch-inner"></div>
+                                            <div class="onoffswitch-switch"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="right">
+                                <label for="on-off-switch"><span class="swichText"> <b> Envoi automatique du rapport du jour à : 08h00</b></span>
+                                </label></div>
+                        </div>
+
+
+                        <div class="control-group">
+                            <input id="select-to" name="mailAuto" class="contacts selectized" placeholder="Envoi automatique du rapport du jour à : 08h00" value="florent.lottin@atexo.com,exploitation@atexo.com,dp.atexo.place.orme@atexo.com,sebastien.lepers@atexo.com,regis.menet@atexo.com" tabindex="-1" style="display: none;"><div class="selectize-control contacts multi"><div class="selectize-input items not-full has-options has-items"><div data-value="florent.lottin@atexo.com"><span class="email">florent.lottin@atexo.com</span></div><div data-value="exploitation@atexo.com"><span class="email">exploitation@atexo.com</span></div><div data-value="dp.atexo.place.orme@atexo.com"><span class="email">dp.atexo.place.orme@atexo.com</span></div><div data-value="sebastien.lepers@atexo.com"><span class="email">sebastien.lepers@atexo.com</span></div><div data-value="regis.menet@atexo.com"><span class="email">regis.menet@atexo.com</span></div><input type="text" autocomplete="off" tabindex="" id="select-to-selectized" style="width: 10px;"></div><div class="selectize-dropdown multi contacts" style="display: none; width: 925px; top: 560px; left: 15px;"><div class="selectize-dropdown-content"></div></div></div>
+
+                        </div>
+                        <br>
+                        <div class="control-group">
+                            <label for="select-to-two-selectized">Destinataires externes pour envoi manuel</label>
+                            <input id="select-to-two" name="mailManuel" class="contacts selectized" placeholder="Destinataires externes pour envoi manuel" value="olivier.pruvot@finances.gouv.fr,sebastien.fouasnon@finances.gouv.fr,christophe.scoquart@finances.gouv.fr,alexandre.sabatou@finances.gouv.fr,francois.coulloch@finances.gouv.fr,Herve.BREITENSTEIN@finances.gouv.fr,yanis.meghraoua@finances.gouv.fr,exploitation@atexo.com,dp.atexo.place.orme@atexo.com,rapport-production.interne@atexo.com" tabindex="-1" style="display: none;"><div class="selectize-control contacts multi"><div class="selectize-input items not-full has-options has-items"><div data-value="olivier.pruvot@finances.gouv.fr"><span class="email">olivier.pruvot@finances.gouv.fr</span></div><div data-value="sebastien.fouasnon@finances.gouv.fr"><span class="email">sebastien.fouasnon@finances.gouv.fr</span></div><div data-value="christophe.scoquart@finances.gouv.fr"><span class="email">christophe.scoquart@finances.gouv.fr</span></div><div data-value="alexandre.sabatou@finances.gouv.fr"><span class="email">alexandre.sabatou@finances.gouv.fr</span></div><div data-value="francois.coulloch@finances.gouv.fr"><span class="email">francois.coulloch@finances.gouv.fr</span></div><div data-value="Herve.BREITENSTEIN@finances.gouv.fr"><span class="email">Herve.BREITENSTEIN@finances.gouv.fr</span></div><div data-value="yanis.meghraoua@finances.gouv.fr"><span class="email">yanis.meghraoua@finances.gouv.fr</span></div><div data-value="exploitation@atexo.com"><span class="email">exploitation@atexo.com</span></div><div data-value="dp.atexo.place.orme@atexo.com"><span class="email">dp.atexo.place.orme@atexo.com</span></div><div data-value="rapport-production.interne@atexo.com"><span class="email">rapport-production.interne@atexo.com</span></div><input type="text" autocomplete="off" tabindex="" id="select-to-two-selectized" style="width: 10px;"></div><div class="selectize-dropdown multi contacts" style="display: none; width: 925px; top: 845px; left: 15px;"><div class="selectize-dropdown-content"></div></div></div>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" id="confirm" data-toggle="modal" data-target="#exampleModal">
+                                Launch demo modal
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                            <button type="button" class="btn btn-primary" id="deleteBtn">supprimer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br>
+
+
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="mail0" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            Rapport généré le  2018-12-21 à 09:21:52
+                                        </h5>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <b>Emetteur :</b> <span>noreply@atexo.com</span>
+                                        <br><br>
+                                        <b>Destinataire :</b> <span id="listMail">olivier.pruvot@finances.gouv.fr, sebastien.fouasnon@finances.gouv.fr, christophe.scoquart@finances.gouv.fr, alexandre.sabatou@finances.gouv.fr, francois.coulloch@finances.gouv.fr, Herve.BREITENSTEIN@finances.gouv.fr, yanis.meghraoua@finances.gouv.fr, exploitation@atexo.com, dp.atexo.place.orme@atexo.com, rapport-production.interne@atexo.com</span>
+                                        <input type="hidden" name="listMails" id="listMails" value="olivier.pruvot@finances.gouv.fr,sebastien.fouasnon@finances.gouv.fr,christophe.scoquart@finances.gouv.fr,alexandre.sabatou@finances.gouv.fr,francois.coulloch@finances.gouv.fr,Herve.BREITENSTEIN@finances.gouv.fr,yanis.meghraoua@finances.gouv.fr,exploitation@atexo.com,dp.atexo.place.orme@atexo.com,rapport-production.interne@atexo.com">
+                                        <br><br>
+                                        <b>Object :</b> PLACE/ORME
+                                        <br><br>
+                                        <b>PJ :</b> Rapport_production_PLACE-ORME-20181221-0921.pdf
+                                        <br>
+                                        <hr>
+
+
+
+
+
+                                        <p>
+                                            Bonjour,<br><br>
+                                            Voici en pièce jointe le rapport de production du 21/12/2018.<br>
+                                            <br>
+                                            Fait(s) marquant(s) :<br><br> Faits marquants :<br>
+                                            - Mise en production des versions PLACE 2018-00.03.00.01 et ORME 2018-02.02.00 dans la nuit du 19/12/2018 au 20/12/2018 expliquant une QoS inférieure aux SLA habituels.<br>
+                                            - Indisponibilité partielle de 19 minutes sur la fonction d'upload de fichiers liés à des problèmes d'espace disque sur les frontaux, très visible notamment sur le web2.  En cours d'investigation.<br>
+                                            - Dégradation du temps de réponse de la page d'accueil entreprise à 10h : veille en cours<br><br>
+                                            Merci,<br><br>
+                                        </p>
+
+                                        <table border="0" cellspacing="0" cellpadding="0" style="background: none; border: 0px; margin: 0px; padding: 0px;">
+                                            <tbody>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 5px;"><a href="http://www.atexo.com/"><img src="./Rapport de production_files/ATEXO-SANS-FOND-VF.png" alt="" width="100" height="36"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 5px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;"><div><br></div>Service Exploitation</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 10px; color: #848484; font-size: 13px; font-family: Segoe UI Light; background-color: white; font-weight: normal"><i>Direction des opérations</i></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="background: none; border-width: 0px; border: 0px; margin: 0; padding: 0;" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">T</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">+331 53 43 05 40</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;; background-color: white" width="20" valign="top">17</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px; background-color: white; font-weight: normal" valign="top">Bd des Capucines</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: none; vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">FR</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">75002 Paris</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 10px;" valign="center">
+                                                    <table>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td valign="center">
+                                                                <a href="https://fr.linkedin.com/company/atexo">
+                                                                    <img src="./Rapport de production_files/LinkedIn-e1490780930263.png" alt="" width="23" height="23">
+                                                                </a>
+                                                            </td>
+                                                            <td>&nbsp;&nbsp;
+                                                                <a href="http://www.atexo.com/">
+                                                                    <img src="./Rapport de production_files/Logo-GPTW-20172.png" alt="" width="80" height="35">
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <p><small>Rapport version 2018.00.00.00</small></p>
+
+
+                                        <hr>
+                                        <br>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <input type="hidden" value="69" id="mailId">
+
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success" data-dismiss="modal" id="mailSent">Mail envoyé</button>
+                                        <button type="button" class="btn btn-primary saveBtn" id="saveBtn">Envoi Mail</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="mail1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            Rapport généré le  2018-12-21 à 09:21:38
+                                        </h5>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <b>Emetteur :</b> <span>noreply@atexo.com</span>
+                                        <br><br>
+                                        <b>Destinataire :</b> <span id="listMail">olivier.pruvot@finances.gouv.fr, sebastien.fouasnon@finances.gouv.fr, christophe.scoquart@finances.gouv.fr, alexandre.sabatou@finances.gouv.fr, francois.coulloch@finances.gouv.fr, Herve.BREITENSTEIN@finances.gouv.fr, yanis.meghraoua@finances.gouv.fr, exploitation@atexo.com, dp.atexo.place.orme@atexo.com, rapport-production.interne@atexo.com</span>
+                                        <input type="hidden" name="listMails" id="listMails" value="olivier.pruvot@finances.gouv.fr,sebastien.fouasnon@finances.gouv.fr,christophe.scoquart@finances.gouv.fr,alexandre.sabatou@finances.gouv.fr,francois.coulloch@finances.gouv.fr,Herve.BREITENSTEIN@finances.gouv.fr,yanis.meghraoua@finances.gouv.fr,exploitation@atexo.com,dp.atexo.place.orme@atexo.com,rapport-production.interne@atexo.com">
+                                        <br><br>
+                                        <b>Object :</b> PLACE/ORME
+                                        <br><br>
+                                        <b>PJ :</b> Rapport_production_PLACE-ORME-20181221-0921.pdf
+                                        <br>
+                                        <hr>
+
+
+
+
+
+                                        <p>
+                                            Bonjour,<br><br>
+                                            Voici en pièce jointe le rapport de production du 21/12/2018.<br>
+                                            <br>
+                                            Fait(s) marquant(s) :<br><br> Faits marquants :<br>
+                                            - Mise en production des versions PLACE 2018-00.03.00.01 et ORME 2018-02.02.00 dans la nuit du 19/12/2018 au 20/12/2018 expliquant une QoS inférieure aux SLA habituels.<br>
+                                            - Indisponibilité partielle de 19 minutes sur la fonction d'upload de fichiers liés à des problèmes d'espace disque sur les frontaux, très visible notamment sur le web2.  En cours d'investigation.<br>
+                                            - Dégradation du temps de réponse de la page d'accueil entreprise à 10h : veille en cours<br><br>
+                                            Merci,<br><br>
+                                        </p>
+
+                                        <table border="0" cellspacing="0" cellpadding="0" style="background: none; border: 0px; margin: 0px; padding: 0px;">
+                                            <tbody>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 5px;"><a href="http://www.atexo.com/"><img src="./Rapport de production_files/ATEXO-SANS-FOND-VF.png" alt="" width="100" height="36"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 5px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;"><div><br></div>Service Exploitation</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 10px; color: #848484; font-size: 13px; font-family: Segoe UI Light; background-color: white; font-weight: normal"><i>Direction des opérations</i></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="background: none; border-width: 0px; border: 0px; margin: 0; padding: 0;" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">T</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">+331 53 43 05 40</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;; background-color: white" width="20" valign="top">17</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px; background-color: white; font-weight: normal" valign="top">Bd des Capucines</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: none; vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">FR</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">75002 Paris</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 10px;" valign="center">
+                                                    <table>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td valign="center">
+                                                                <a href="https://fr.linkedin.com/company/atexo">
+                                                                    <img src="./Rapport de production_files/LinkedIn-e1490780930263.png" alt="" width="23" height="23">
+                                                                </a>
+                                                            </td>
+                                                            <td>&nbsp;&nbsp;
+                                                                <a href="http://www.atexo.com/">
+                                                                    <img src="./Rapport de production_files/Logo-GPTW-20172.png" alt="" width="80" height="35">
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <p><small>Rapport version 2018.00.00.00</small></p>
+
+
+                                        <hr>
+                                        <br>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <input type="hidden" value="68" id="mailId">
+
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success" data-dismiss="modal" id="mailSent">Mail envoyé</button>
+                                        <button type="button" class="btn btn-primary saveBtn" id="saveBtn">Envoi Mail</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="mail2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            Rapport généré le  2018-12-21 à 09:19:45
+                                        </h5>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <b>Emetteur :</b> <span>noreply@atexo.com</span>
+                                        <br><br>
+                                        <b>Destinataire :</b> <span id="listMail">olivier.pruvot@finances.gouv.fr, sebastien.fouasnon@finances.gouv.fr, christophe.scoquart@finances.gouv.fr, alexandre.sabatou@finances.gouv.fr, francois.coulloch@finances.gouv.fr, Herve.BREITENSTEIN@finances.gouv.fr, yanis.meghraoua@finances.gouv.fr, exploitation@atexo.com, dp.atexo.place.orme@atexo.com, rapport-production.interne@atexo.com</span>
+                                        <input type="hidden" name="listMails" id="listMails" value="olivier.pruvot@finances.gouv.fr,sebastien.fouasnon@finances.gouv.fr,christophe.scoquart@finances.gouv.fr,alexandre.sabatou@finances.gouv.fr,francois.coulloch@finances.gouv.fr,Herve.BREITENSTEIN@finances.gouv.fr,yanis.meghraoua@finances.gouv.fr,exploitation@atexo.com,dp.atexo.place.orme@atexo.com,rapport-production.interne@atexo.com">
+                                        <br><br>
+                                        <b>Object :</b> PLACE/ORME
+                                        <br><br>
+                                        <b>PJ :</b> Rapport_production_PLACE-ORME-20181221-0919.pdf
+                                        <br>
+                                        <hr>
+
+
+
+
+
+                                        <p>
+                                            Bonjour,<br><br>
+                                            Voici en pièce jointe le rapport de production du 21/12/2018.<br>
+                                            <br>
+                                            Fait(s) marquant(s) :<br><br> Faits marquants :<br>
+                                            - Mise en production des versions PLACE 2018-00.03.00.01 et ORME 2018-02.02.00 dans la nuit du 19/12/2018 au 20/12/2018 expliquant une QoS inférieure aux SLA habituels.<br>
+                                            - Indisponibilité partielle de 19 minutes sur la fonction d'upload de fichiers liés à des problèmes d'espace disque sur les frontaux, très visible notamment sur le web2.  En cours d'investigation.<br>
+                                            - Dégradation du temps de réponse de la page d'accueil entreprise à 10h : veille en cours<br><br>
+                                            Merci,<br><br>
+                                        </p>
+
+                                        <table border="0" cellspacing="0" cellpadding="0" style="background: none; border: 0px; margin: 0px; padding: 0px;">
+                                            <tbody>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 5px;"><a href="http://www.atexo.com/"><img src="./Rapport de production_files/ATEXO-SANS-FOND-VF.png" alt="" width="100" height="36"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 5px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;"><div><br></div>Service Exploitation</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 10px; color: #848484; font-size: 13px; font-family: Segoe UI Light; background-color: white; font-weight: normal"><i>Direction des opérations</i></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="background: none; border-width: 0px; border: 0px; margin: 0; padding: 0;" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">T</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">+331 53 43 05 40</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;; background-color: white" width="20" valign="top">17</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px; background-color: white; font-weight: normal" valign="top">Bd des Capucines</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: none; vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">FR</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">75002 Paris</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 10px;" valign="center">
+                                                    <table>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td valign="center">
+                                                                <a href="https://fr.linkedin.com/company/atexo">
+                                                                    <img src="./Rapport de production_files/LinkedIn-e1490780930263.png" alt="" width="23" height="23">
+                                                                </a>
+                                                            </td>
+                                                            <td>&nbsp;&nbsp;
+                                                                <a href="http://www.atexo.com/">
+                                                                    <img src="./Rapport de production_files/Logo-GPTW-20172.png" alt="" width="80" height="35">
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <p><small>Rapport version 2018.00.00.00</small></p>
+
+
+                                        <hr>
+                                        <br>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <input type="hidden" value="67" id="mailId">
+
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success" data-dismiss="modal" id="mailSent">Mail envoyé</button>
+                                        <button type="button" class="btn btn-primary saveBtn" id="saveBtn">Envoi Mail</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="mail3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            Rapport généré le  2018-12-21 à 08:19:27
+                                        </h5>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <b>Emetteur :</b> <span>noreply@atexo.com</span>
+                                        <br><br>
+                                        <b>Destinataire :</b> <span id="listMail">olivier.pruvot@finances.gouv.fr, sebastien.fouasnon@finances.gouv.fr, christophe.scoquart@finances.gouv.fr, alexandre.sabatou@finances.gouv.fr, francois.coulloch@finances.gouv.fr, Herve.BREITENSTEIN@finances.gouv.fr, yanis.meghraoua@finances.gouv.fr, exploitation@atexo.com, dp.atexo.place.orme@atexo.com, rapport-production.interne@atexo.com</span>
+                                        <input type="hidden" name="listMails" id="listMails" value="olivier.pruvot@finances.gouv.fr,sebastien.fouasnon@finances.gouv.fr,christophe.scoquart@finances.gouv.fr,alexandre.sabatou@finances.gouv.fr,francois.coulloch@finances.gouv.fr,Herve.BREITENSTEIN@finances.gouv.fr,yanis.meghraoua@finances.gouv.fr,exploitation@atexo.com,dp.atexo.place.orme@atexo.com,rapport-production.interne@atexo.com">
+                                        <br><br>
+                                        <b>Object :</b> PLACE/ORME
+                                        <br><br>
+                                        <b>PJ :</b> Rapport_production_PLACE-ORME-20181221-0819.pdf
+                                        <br>
+                                        <hr>
+
+
+
+
+
+                                        <p>
+                                            Bonjour,<br><br>
+                                            Voici en pièce jointe le rapport de production du 21/12/2018.<br>
+                                            <br>
+                                            Fait(s) marquant(s) :<br><br> Pas de fait marquant pour ce rapport.<br><br>
+                                            Merci,<br><br>
+                                        </p>
+
+                                        <table border="0" cellspacing="0" cellpadding="0" style="background: none; border: 0px; margin: 0px; padding: 0px;">
+                                            <tbody>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 5px;"><a href="http://www.atexo.com/"><img src="./Rapport de production_files/ATEXO-SANS-FOND-VF.png" alt="" width="100" height="36"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 5px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;"><div><br></div>Service Exploitation</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 10px; color: #848484; font-size: 13px; font-family: Segoe UI Light; background-color: white; font-weight: normal"><i>Direction des opérations</i></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="background: none; border-width: 0px; border: 0px; margin: 0; padding: 0;" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">T</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">+331 53 43 05 40</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;; background-color: white" width="20" valign="top">17</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px; background-color: white; font-weight: normal" valign="top">Bd des Capucines</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: none; vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">FR</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">75002 Paris</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 10px;" valign="center">
+                                                    <table>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td valign="center">
+                                                                <a href="https://fr.linkedin.com/company/atexo">
+                                                                    <img src="./Rapport de production_files/LinkedIn-e1490780930263.png" alt="" width="23" height="23">
+                                                                </a>
+                                                            </td>
+                                                            <td>&nbsp;&nbsp;
+                                                                <a href="http://www.atexo.com/">
+                                                                    <img src="./Rapport de production_files/Logo-GPTW-20172.png" alt="" width="80" height="35">
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <p><small>Rapport version 2018.00.00.00</small></p>
+
+
+                                        <hr>
+                                        <br>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <input type="hidden" value="66" id="mailId">
+
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success" data-dismiss="modal" id="mailSent">Mail envoyé</button>
+                                        <button type="button" class="btn btn-primary saveBtn" id="saveBtn">Envoi Mail</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="mail4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            Rapport généré le  2018-12-20 à 15:55:09
+                                        </h5>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <b>Emetteur :</b> <span>noreply@atexo.com</span>
+                                        <br><br>
+                                        <b>Destinataire :</b> <span id="listMail">olivier.pruvot@finances.gouv.fr, sebastien.fouasnon@finances.gouv.fr, christophe.scoquart@finances.gouv.fr, alexandre.sabatou@finances.gouv.fr, francois.coulloch@finances.gouv.fr, Herve.BREITENSTEIN@finances.gouv.fr, yanis.meghraoua@finances.gouv.fr, exploitation@atexo.com, dp.atexo.place.orme@atexo.com, rapport-production.interne@atexo.com</span>
+                                        <input type="hidden" name="listMails" id="listMails" value="olivier.pruvot@finances.gouv.fr,sebastien.fouasnon@finances.gouv.fr,christophe.scoquart@finances.gouv.fr,alexandre.sabatou@finances.gouv.fr,francois.coulloch@finances.gouv.fr,Herve.BREITENSTEIN@finances.gouv.fr,yanis.meghraoua@finances.gouv.fr,exploitation@atexo.com,dp.atexo.place.orme@atexo.com,rapport-production.interne@atexo.com">
+                                        <br><br>
+                                        <b>Object :</b> PLACE/ORME
+                                        <br><br>
+                                        <b>PJ :</b> Rapport_production_PLACE-ORME-20181220-1555.pdf
+                                        <br>
+                                        <hr>
+
+
+
+
+
+                                        <p>
+                                            Bonjour,<br><br>
+                                            Voici en pièce jointe le rapport de production du 20/12/2018.<br>
+                                            <br>
+                                            Fait marquant : Concernant le service : <br>
+                                            Le serveur web3 a été partiellement interrompu le 19 dec, sans effet sur les performances applicatives.<br>
+                                            L'ensemble applicatif a été interrompu sur le créneau 20h - 4h pour la mise en place de la nouvelle version PLACE &amp; ORME (installation OK).<br>
+                                            Concernant ce rapport : <br>
+                                            Ceci est la nouvelle version du rapport de production (version 2018.00.00.00 mentionnée dans le mail d'envoi).<br>
+                                            Il comporte les nouveaux tableaux de suivi des interfaces.<br>
+                                            A noter, les tableaux Chorus et Atlas présentent parfois une valeur erronée de "Poids des flux / archives transmis" (2 048 Mo), liée à un champ en base de données dont la valeur est bornée. Un correctif est planifié pour début 2019.<br><br>
+                                            Merci,<br><br>
+                                        </p>
+
+                                        <table border="0" cellspacing="0" cellpadding="0" style="background: none; border: 0px; margin: 0px; padding: 0px;">
+                                            <tbody>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 5px;"><a href="http://www.atexo.com/"><img src="./Rapport de production_files/ATEXO-SANS-FOND-VF.png" alt="" width="100" height="36"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 5px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;"><div><br></div>Service Exploitation</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 10px; color: #848484; font-size: 13px; font-family: Segoe UI Light; background-color: white; font-weight: normal"><i>Direction des opérations</i></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="background: none; border-width: 0px; border: 0px; margin: 0; padding: 0;" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">T</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">+331 53 43 05 40</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;; background-color: white" width="20" valign="top">17</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px; background-color: white; font-weight: normal" valign="top">Bd des Capucines</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: none; vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">FR</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">75002 Paris</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 10px;" valign="center">
+                                                    <table>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td valign="center">
+                                                                <a href="https://fr.linkedin.com/company/atexo">
+                                                                    <img src="./Rapport de production_files/LinkedIn-e1490780930263.png" alt="" width="23" height="23">
+                                                                </a>
+                                                            </td>
+                                                            <td>&nbsp;&nbsp;
+                                                                <a href="http://www.atexo.com/">
+                                                                    <img src="./Rapport de production_files/Logo-GPTW-20172.png" alt="" width="80" height="35">
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <p><small>Rapport version 2018.00.00.00</small></p>
+
+
+                                        <hr>
+                                        <br>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <input type="hidden" value="65" id="mailId">
+
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success" data-dismiss="modal" id="mailSent">Mail envoyé</button>
+                                        <button type="button" class="btn btn-primary saveBtn" id="saveBtn">Envoi Mail</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="mail5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            Rapport généré le  2018-12-20 à 14:14:06
+                                        </h5>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <b>Emetteur :</b> <span>noreply@atexo.com</span>
+                                        <br><br>
+                                        <b>Destinataire :</b> <span id="listMail">olivier.pruvot@finances.gouv.fr, sebastien.fouasnon@finances.gouv.fr, christophe.scoquart@finances.gouv.fr, alexandre.sabatou@finances.gouv.fr, francois.coulloch@finances.gouv.fr, Herve.BREITENSTEIN@finances.gouv.fr, yanis.meghraoua@finances.gouv.fr, exploitation@atexo.com, dp.atexo.place.orme@atexo.com, rapport-production.interne@atexo.com</span>
+                                        <input type="hidden" name="listMails" id="listMails" value="olivier.pruvot@finances.gouv.fr,sebastien.fouasnon@finances.gouv.fr,christophe.scoquart@finances.gouv.fr,alexandre.sabatou@finances.gouv.fr,francois.coulloch@finances.gouv.fr,Herve.BREITENSTEIN@finances.gouv.fr,yanis.meghraoua@finances.gouv.fr,exploitation@atexo.com,dp.atexo.place.orme@atexo.com,rapport-production.interne@atexo.com">
+                                        <br><br>
+                                        <b>Object :</b> PLACE/ORME
+                                        <br><br>
+                                        <b>PJ :</b> Rapport_production_PLACE-ORME-20181220-1413.pdf
+                                        <br>
+                                        <hr>
+
+
+
+
+
+                                        <p>
+                                            Bonjour,<br><br>
+                                            Voici en pièce jointe le rapport de production du 20/12/2018.<br>
+                                            <br>
+                                            Fait marquant : Concernant le service : <br>
+                                            Le serveur web3 a été partiellement interrompu le 19 dec, sans effet sur les performances applicatives.<br>
+                                            L'ensemble applicatif a été interrompu sur le créneau 20h - 4h pour la mise en place de la nouvelle version PLACE &amp; ORME (installation OK).<br>
+                                            Concernant ce rapport : <br>
+                                            Ceci est la nouvelle version du rapport de production (version 2018.00.00.00 mentionnée dans le mail d'envoi).<br>
+                                            Il comporte les nouveaux tableaux de suivi des interfaces.<br>
+                                            A noter, les tableaux Chorus et Atlas présentent parfois une valeur erronée de "Poids des flux / archives transmis" (2 048 Mo), liée à un champ en base de données dont la valeur est bornée. Un correctif est planifié pour début 2019.<br><br>
+                                            Merci,<br><br>
+                                        </p>
+
+                                        <table border="0" cellspacing="0" cellpadding="0" style="background: none; border: 0px; margin: 0px; padding: 0px;">
+                                            <tbody>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 5px;"><a href="http://www.atexo.com/"><img src="./Rapport de production_files/ATEXO-SANS-FOND-VF.png" alt="" width="100" height="36"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 5px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;"><div><br></div>Service Exploitation</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 10px; color: #848484; font-size: 13px; font-family: Segoe UI Light; background-color: white; font-weight: normal"><i>Direction des opérations</i></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="background: none; border-width: 0px; border: 0px; margin: 0; padding: 0;" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">T</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">+331 53 43 05 40</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;; background-color: white" width="20" valign="top">17</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px; background-color: white; font-weight: normal" valign="top">Bd des Capucines</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: none; vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">FR</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">75002 Paris</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 10px;" valign="center">
+                                                    <table>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td valign="center">
+                                                                <a href="https://fr.linkedin.com/company/atexo">
+                                                                    <img src="./Rapport de production_files/LinkedIn-e1490780930263.png" alt="" width="23" height="23">
+                                                                </a>
+                                                            </td>
+                                                            <td>&nbsp;&nbsp;
+                                                                <a href="http://www.atexo.com/">
+                                                                    <img src="./Rapport de production_files/Logo-GPTW-20172.png" alt="" width="80" height="35">
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <p><small>Rapport version 2018.00.00.00</small></p>
+
+
+                                        <hr>
+                                        <br>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <input type="hidden" value="64" id="mailId">
+
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success" data-dismiss="modal" id="mailSent">Mail envoyé</button>
+                                        <button type="button" class="btn btn-primary saveBtn" id="saveBtn">Envoi Mail</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="mail6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            Rapport généré le  2018-12-20 à 08:44:29
+                                        </h5>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <b>Emetteur :</b> <span>noreply@atexo.com</span>
+                                        <br><br>
+                                        <b>Destinataire :</b> <span id="listMail">olivier.pruvot@finances.gouv.fr, sebastien.fouasnon@finances.gouv.fr, christophe.scoquart@finances.gouv.fr, alexandre.sabatou@finances.gouv.fr, francois.coulloch@finances.gouv.fr, Herve.BREITENSTEIN@finances.gouv.fr, yanis.meghraoua@finances.gouv.fr, exploitation@atexo.com, dp.atexo.place.orme@atexo.com, rapport-production.interne@atexo.com</span>
+                                        <input type="hidden" name="listMails" id="listMails" value="olivier.pruvot@finances.gouv.fr,sebastien.fouasnon@finances.gouv.fr,christophe.scoquart@finances.gouv.fr,alexandre.sabatou@finances.gouv.fr,francois.coulloch@finances.gouv.fr,Herve.BREITENSTEIN@finances.gouv.fr,yanis.meghraoua@finances.gouv.fr,exploitation@atexo.com,dp.atexo.place.orme@atexo.com,rapport-production.interne@atexo.com">
+                                        <br><br>
+                                        <b>Object :</b> PLACE/ORME
+                                        <br><br>
+                                        <b>PJ :</b> Rapport_production_PLACE-ORME-20181220-0844.pdf
+                                        <br>
+                                        <hr>
+
+
+
+
+
+                                        <p>
+                                            Bonjour,<br><br>
+                                            Voici en pièce jointe le rapport de production du 20/12/2018.<br>
+                                            <br>
+                                            Fait marquant : Concernant le service :
+                                            Le serveur web3 a été partiellement interrompu le 19 dec, sans effet sur les performances applicatives.
+                                            L'ensemble applicatif a été interrompu sur le créneau 20h - 4h pour la mise en place de la nouvelle version PLACE &amp; ORME (installation OK).
+                                            Concernant ce rapport :
+                                            Ceci est la nouvelle version du rapport de production (version 2018.00.00.00 mentionnée dans le mail d'envoi).
+                                            Il comporte les nouveaux tableaux de suivi des interfaces.
+                                            A noter, les tableaux Chorus et Atlas présentent parfois une valeur erronée de "Poids des flux / archives transmis" (2 048 Mo), liée à un champ en base de données dont la valeur est bornée. Un correctif est planifié pour début 2019.<br><br>
+                                            Merci,<br><br>
+                                        </p>
+
+                                        <table border="0" cellspacing="0" cellpadding="0" style="background: none; border: 0px; margin: 0px; padding: 0px;">
+                                            <tbody>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 5px;"><a href="http://www.atexo.com/"><img src="./Rapport de production_files/ATEXO-SANS-FOND-VF.png" alt="" width="100" height="36"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 5px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;"><div><br></div>Service Exploitation</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 10px; color: #848484; font-size: 13px; font-family: Segoe UI Light; background-color: white; font-weight: normal"><i>Direction des opérations</i></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="background: none; border-width: 0px; border: 0px; margin: 0; padding: 0;" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">T</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">+331 53 43 05 40</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;; background-color: white" width="20" valign="top">17</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px; background-color: white; font-weight: normal" valign="top">Bd des Capucines</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: none; vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">FR</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">75002 Paris</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 10px;" valign="center">
+                                                    <table>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td valign="center">
+                                                                <a href="https://fr.linkedin.com/company/atexo">
+                                                                    <img src="./Rapport de production_files/LinkedIn-e1490780930263.png" alt="" width="23" height="23">
+                                                                </a>
+                                                            </td>
+                                                            <td>&nbsp;&nbsp;
+                                                                <a href="http://www.atexo.com/">
+                                                                    <img src="./Rapport de production_files/Logo-GPTW-20172.png" alt="" width="80" height="35">
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <p><small>Rapport version 2018.00.00.00</small></p>
+
+
+                                        <hr>
+                                        <br>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <input type="hidden" value="63" id="mailId">
+
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success" data-dismiss="modal" id="mailSent">Mail envoyé</button>
+                                        <button type="button" class="btn btn-primary saveBtn" id="saveBtn">Envoi Mail</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="mail7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            Rapport généré le  2018-12-20 à 08:34:26
+                                        </h5>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <b>Emetteur :</b> <span>noreply@atexo.com</span>
+                                        <br><br>
+                                        <b>Destinataire :</b> <span id="listMail">olivier.pruvot@finances.gouv.fr, sebastien.fouasnon@finances.gouv.fr, christophe.scoquart@finances.gouv.fr, alexandre.sabatou@finances.gouv.fr, francois.coulloch@finances.gouv.fr, Herve.BREITENSTEIN@finances.gouv.fr, yanis.meghraoua@finances.gouv.fr, exploitation@atexo.com, dp.atexo.place.orme@atexo.com, rapport-production.interne@atexo.com</span>
+                                        <input type="hidden" name="listMails" id="listMails" value="olivier.pruvot@finances.gouv.fr,sebastien.fouasnon@finances.gouv.fr,christophe.scoquart@finances.gouv.fr,alexandre.sabatou@finances.gouv.fr,francois.coulloch@finances.gouv.fr,Herve.BREITENSTEIN@finances.gouv.fr,yanis.meghraoua@finances.gouv.fr,exploitation@atexo.com,dp.atexo.place.orme@atexo.com,rapport-production.interne@atexo.com">
+                                        <br><br>
+                                        <b>Object :</b> PLACE/ORME
+                                        <br><br>
+                                        <b>PJ :</b> Rapport_production_PLACE-ORME-20181220-0834.pdf
+                                        <br>
+                                        <hr>
+
+
+
+
+
+                                        <p>
+                                            Bonjour,<br><br>
+                                            Voici en pièce jointe le rapport de production du 20/12/2018.<br>
+                                            <br>
+                                            Fait marquant : Concernant le service :
+                                            Le serveur web3 a été partiellement interrompu le 19 dec, sans effet sur les performances applicatives.
+                                            L'ensemble applicatif a été interrompu sur le créneau 23h - 4h pour la mise en place de la nouvelle version PLACE &amp; ORME.
+                                            Concernant ce rapport :
+                                            Ceci est la nouvelle version du rapport de production (version 2018.00.00.00 mentionnée dans le mail d'envoi).
+                                            Il comporte les nouveaux tableaux de suivi des interfaces.
+                                            A noter, les tableaux Chorus et Atlas présentent parfois une valeur erronée de "Poids des flux / archives transmise" (2 048 Mo), liée à un champ en base de données dont la valeur est bornée. Un correctif est planifié pour début 2019.<br><br>
+                                            Merci,<br><br>
+                                        </p>
+
+                                        <table border="0" cellspacing="0" cellpadding="0" style="background: none; border: 0px; margin: 0px; padding: 0px;">
+                                            <tbody>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 5px;"><a href="http://www.atexo.com/"><img src="./Rapport de production_files/ATEXO-SANS-FOND-VF.png" alt="" width="100" height="36"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 5px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;"><div><br></div>Service Exploitation</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 10px; color: #848484; font-size: 13px; font-family: Segoe UI Light; background-color: white; font-weight: normal"><i>Direction des opérations</i></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="background: none; border-width: 0px; border: 0px; margin: 0; padding: 0;" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">T</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">+331 53 43 05 40</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;; background-color: white" width="20" valign="top">17</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px; background-color: white; font-weight: normal" valign="top">Bd des Capucines</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: none; vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">FR</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">75002 Paris</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 10px;" valign="center">
+                                                    <table>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td valign="center">
+                                                                <a href="https://fr.linkedin.com/company/atexo">
+                                                                    <img src="./Rapport de production_files/LinkedIn-e1490780930263.png" alt="" width="23" height="23">
+                                                                </a>
+                                                            </td>
+                                                            <td>&nbsp;&nbsp;
+                                                                <a href="http://www.atexo.com/">
+                                                                    <img src="./Rapport de production_files/Logo-GPTW-20172.png" alt="" width="80" height="35">
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <p><small>Rapport version 2018.00.00.00</small></p>
+
+
+                                        <hr>
+                                        <br>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <input type="hidden" value="62" id="mailId">
+
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success" data-dismiss="modal" id="mailSent">Mail envoyé</button>
+                                        <button type="button" class="btn btn-primary saveBtn" id="saveBtn">Envoi Mail</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="mail8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            Rapport généré le  2018-12-20 à 08:30:41
+                                        </h5>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <b>Emetteur :</b> <span>noreply@atexo.com</span>
+                                        <br><br>
+                                        <b>Destinataire :</b> <span id="listMail">olivier.pruvot@finances.gouv.fr, sebastien.fouasnon@finances.gouv.fr, christophe.scoquart@finances.gouv.fr, alexandre.sabatou@finances.gouv.fr, francois.coulloch@finances.gouv.fr, Herve.BREITENSTEIN@finances.gouv.fr, yanis.meghraoua@finances.gouv.fr, exploitation@atexo.com, dp.atexo.place.orme@atexo.com, rapport-production.interne@atexo.com</span>
+                                        <input type="hidden" name="listMails" id="listMails" value="olivier.pruvot@finances.gouv.fr,sebastien.fouasnon@finances.gouv.fr,christophe.scoquart@finances.gouv.fr,alexandre.sabatou@finances.gouv.fr,francois.coulloch@finances.gouv.fr,Herve.BREITENSTEIN@finances.gouv.fr,yanis.meghraoua@finances.gouv.fr,exploitation@atexo.com,dp.atexo.place.orme@atexo.com,rapport-production.interne@atexo.com">
+                                        <br><br>
+                                        <b>Object :</b> PLACE/ORME
+                                        <br><br>
+                                        <b>PJ :</b> Rapport_production_PLACE-ORME-20181220-0830.pdf
+                                        <br>
+                                        <hr>
+
+
+
+
+
+                                        <p>
+                                            Bonjour,<br><br>
+                                            Voici en pièce jointe le rapport de production du 20/12/2018.<br>
+                                            <br>
+                                            Fait marquant : Concernant le service :
+                                            Le serveur web3 a été partiellement interrompu le 19 dec, sans effet sur les performances applicatives.
+                                            Le serveur a été interrompu sur le créneau 23h - 4h pour la mise en place de la nouvelle version PLACE &amp; ORME.
+                                            Concernant ce rapport :
+                                            Ceci est la nouvelle version du rapport de production (version 2018.00.00.00 mentionnée dans le mail d'envoi).
+                                            Il comporte les nouveaux tableaux de suivi des interfaces.
+                                            A noter, le tableau ATLAS présente une valeur erronée de "Poids de archives transmises" (2 048 Mo), liée à un champ en base de données dont la valeur est bornée. Un correctif est planifié pour début 2019.<br><br>
+                                            Merci,<br><br>
+                                        </p>
+
+                                        <table border="0" cellspacing="0" cellpadding="0" style="background: none; border: 0px; margin: 0px; padding: 0px;">
+                                            <tbody>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 5px;"><a href="http://www.atexo.com/"><img src="./Rapport de production_files/ATEXO-SANS-FOND-VF.png" alt="" width="100" height="36"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 5px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;"><div><br></div>Service Exploitation</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 10px; color: #848484; font-size: 13px; font-family: Segoe UI Light; background-color: white; font-weight: normal"><i>Direction des opérations</i></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="background: none; border-width: 0px; border: 0px; margin: 0; padding: 0;" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">T</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">+331 53 43 05 40</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;; background-color: white" width="20" valign="top">17</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px; background-color: white; font-weight: normal" valign="top">Bd des Capucines</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: none; vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">FR</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">75002 Paris</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 10px;" valign="center">
+                                                    <table>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td valign="center">
+                                                                <a href="https://fr.linkedin.com/company/atexo">
+                                                                    <img src="./Rapport de production_files/LinkedIn-e1490780930263.png" alt="" width="23" height="23">
+                                                                </a>
+                                                            </td>
+                                                            <td>&nbsp;&nbsp;
+                                                                <a href="http://www.atexo.com/">
+                                                                    <img src="./Rapport de production_files/Logo-GPTW-20172.png" alt="" width="80" height="35">
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <p><small>Rapport version 2018.00.00.00</small></p>
+
+
+                                        <hr>
+                                        <br>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <input type="hidden" value="61" id="mailId">
+
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success" data-dismiss="modal" id="mailSent">Mail envoyé</button>
+                                        <button type="button" class="btn btn-primary saveBtn" id="saveBtn">Envoi Mail</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="mail9" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            Rapport généré le  2018-12-20 à 08:19:44
+                                        </h5>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <b>Emetteur :</b> <span>noreply@atexo.com</span>
+                                        <br><br>
+                                        <b>Destinataire :</b> <span id="listMail">olivier.pruvot@finances.gouv.fr, sebastien.fouasnon@finances.gouv.fr, christophe.scoquart@finances.gouv.fr, alexandre.sabatou@finances.gouv.fr, francois.coulloch@finances.gouv.fr, Herve.BREITENSTEIN@finances.gouv.fr, yanis.meghraoua@finances.gouv.fr, exploitation@atexo.com, dp.atexo.place.orme@atexo.com, rapport-production.interne@atexo.com</span>
+                                        <input type="hidden" name="listMails" id="listMails" value="olivier.pruvot@finances.gouv.fr,sebastien.fouasnon@finances.gouv.fr,christophe.scoquart@finances.gouv.fr,alexandre.sabatou@finances.gouv.fr,francois.coulloch@finances.gouv.fr,Herve.BREITENSTEIN@finances.gouv.fr,yanis.meghraoua@finances.gouv.fr,exploitation@atexo.com,dp.atexo.place.orme@atexo.com,rapport-production.interne@atexo.com">
+                                        <br><br>
+                                        <b>Object :</b> PLACE/ORME
+                                        <br><br>
+                                        <b>PJ :</b> Rapport_production_PLACE-ORME-20181220-0819.pdf
+                                        <br>
+                                        <hr>
+
+
+
+
+
+                                        <p>
+                                            Bonjour,<br><br>
+                                            Voici en pièce jointe le rapport de production du 20/12/2018.<br>
+                                            <br>
+                                            Fait marquant : Pas de fait marquant pour ce rapport.<br><br>
+                                            Merci,<br><br>
+                                        </p>
+
+                                        <table border="0" cellspacing="0" cellpadding="0" style="background: none; border: 0px; margin: 0px; padding: 0px;">
+                                            <tbody>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 5px;"><a href="http://www.atexo.com/"><img src="./Rapport de production_files/ATEXO-SANS-FOND-VF.png" alt="" width="100" height="36"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 5px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;"><div><br></div>Service Exploitation</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-bottom: 10px; color: #848484; font-size: 13px; font-family: Segoe UI Light; background-color: white; font-weight: normal"><i>Direction des opérations</i></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="background: none; border-width: 0px; border: 0px; margin: 0; padding: 0;" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">T</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">+331 53 43 05 40</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;; background-color: white" width="20" valign="top">17</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px; background-color: white; font-weight: normal" valign="top">Bd des Capucines</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background: none; vertical-align: top; width: 20px; color: rgb(59, 106, 166); font-weight: bold; font-family: &#39;Segoe UI Light&#39;;" width="20" valign="top">FR</td>
+                                                <td style="vertical-align: top; color: #848484; font-size: 13px; font-family: Segoe UI Light; padding-left: 5px" valign="top">75002 Paris</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-top: 10px;" valign="center">
+                                                    <table>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td valign="center">
+                                                                <a href="https://fr.linkedin.com/company/atexo">
+                                                                    <img src="./Rapport de production_files/LinkedIn-e1490780930263.png" alt="" width="23" height="23">
+                                                                </a>
+                                                            </td>
+                                                            <td>&nbsp;&nbsp;
+                                                                <a href="http://www.atexo.com/">
+                                                                    <img src="./Rapport de production_files/Logo-GPTW-20172.png" alt="" width="80" height="35">
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <p><small>Rapport version 2018.00.00.00</small></p>
+
+
+                                        <hr>
+                                        <br>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <input type="hidden" value="60" id="mailId">
+
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success" data-dismiss="modal" id="mailSent">Mail envoyé</button>
+                                        <button type="button" class="btn btn-primary saveBtn" id="saveBtn">Envoi Mail</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <p class="datep">
+
+                            Recherche par date : <input type="text" id="datepicker" placeholder="cliquez!">
+                            <br>
+                            <br>
+
+                            Nombre de rapports générés : {{ countHistory }} / nombre de pages : {{ pages }} <br>
+                            {% if pages > 0 %}
+
+
+                                {% set max = 7 %}
+
+                            {% if pages < max %}
+                                {% set max = pages %}
+                            {% endif %}
+                                <span class="btn btn-info btn-sm disabled first " > <<  </span>
+                                <span class="btn btn-info btn-sm disabled previous " > <  </span>
+                                <span class="btn btn-info btn-sm  next" > >  </span>
+                                <span class="btn btn-info btn-sm   last " id="last"> >>  </span>
+                                <span class="btn btn-info btn-sm  max hid " >{{  pages }}</span>
+
+                            {% for i in 1..max %}
+
+                                <span class="btn btn-info btn-sm paginate " id="p{{ loop.index }}"> {{ i }} </span>
+                            {% endfor %}
+
+
+                            {% endif %}
+
+
+                        </p>
+
+                        <table class="table table-striped ">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Rapport généré</th>
+                                <th scope="col"></th>
+                                <th scope="col">Généré à</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+
+                            {% for id, row in history %}
+
+                                {% set date = '' %}
+                                {% set time = '' %}
+                                {% set rapport = '' %}
+                                {% if row != 'null' %}
+                                    {% set date = row.getDateTime()|date("d-m-Y") %}
+                                    {% set time = row.getDateTime()|date("H:i:s") %}
+                                    {% set rapport = 'Rapport du:' %}
+                                {% endif %}
+
+                                <tr id="{{ loop.index }}" style="height:47px;">
+                                    <th scope="row" class="rapport">
+                                        {{ rapport }}
+                                    </th>
+                                    <td class="date">{{ date }}</td>
+                                    <td class="time">{{ time }}</td>
+                                    <td class="download">
+                                        {% if row != 'null' %}
+                                        <a href="" target="_blank">
+                                            <button type="button"
+                                                    class="btn btn-info btn-sm"
+                                                    data-toggle="modal">
+                                                télécharger
+                                            </button></a>
+                                        <button type="button"
+                                                class="btn btn-info btn-sm"
+                                                data-toggle="modal"
+                                                data-target="#mail9">
+                                            envoi
+                                        </button>
+                                        {% endif %}
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+
+
+                        <script>
+                            $( function() {
+                                let max = parseInt($('.max').html().trim())
+                                let id = 1
+                                let num = 7
+                                let rowCount = {{ countHistory }}
+manageControl = function(){
+    if ($('#p1').html() == '1'){
+        $('.first').addClass('disabled')
+        $('.previous').addClass('disabled')
+    } else {
+        $('.first').removeClass('disabled')
+        $('.previous').removeClass('disabled')
+    }
+    if ($('#p7').html() == '{{ pages }}'){
+        $('.last').addClass('disabled')
+        $('.next').addClass('disabled')
+    } else {
+        $('.last').removeClass('disabled')
+        $('.next').removeClass('disabled')
+    }
+}
+                           $('.last').on('click', function () {
+                               $('.paginate').removeClass('disabled')
+                                    let count = 0
+                                    for(let i =max-num ; i <= max; i++){
+                                        $('#p'+count).html(i)
+                                        count++
+                                    }
+                                    id=max-1
+                               manageControl()
+                                });
+
+                                $('.first').on('click', function () {
+                                    $('.paginate').removeClass('disabled')
+                                    for(let i =1 ; i <= num; i++){
+                                        $('#p'+i).html(i)
+                                    }
+                                    id=1
+                                    manageControl()
+                                });
+
+                                $('.next').on('click', function () {
+                                    console.log($('.paginate').hasClass('disabled'))
+                                    $('.paginate').removeClass('disabled')
+                                    if (id < max-1){
+                                        id ++
+                                        for(let i =1 ; i <= num; i++){
+                                            id = parseInt($('#p'+i).html().trim())
+                                            let inc = id + 1
+                                            $('#p'+i).html(inc)
+                                        }
+                                    }
+                                    manageControl()
+
+                                });
+
+                                $('.previous').on('click', function () {
+                                    $('.paginate').removeClass('disabled')
+                                    if (id >= 6){
+                                        id--
+                                        for (let i = 1; i <= num; i++) {
+                                            let id = parseInt($('#p' + i).html().trim()) - 1
+                                            $('#p' + i).html(id)
+                                        }
+                                    }
+                                    manageControl()
+                                });
+
+                                generateLine = function(element, count){
+                                    if ('null' == element){
+
+                                        $('#'+count).find('.date').html('')
+                                        $('#'+count).find('.rapport').html('&nbsp;')
+                                        $('#'+count).find('.time').html('')
+                                        $('#'+count).find('.download').html('')
+                                    } else {
+                                        let date = element.dateTime.substring(0,10)
+
+                                        frenchDate = date.split("-").reverse().join('-')
+
+                                        let time = element.dateTime.substring(11,19)
+                                        $('#'+count).find('.rapport').html('Rapport du:')
+                                        $('#'+count).find('.date').html(frenchDate)
+                                        $('#'+count).find('.time').html(time)
+                                        let btn = '<a href="'+ element.pdfPath +'" target="_blank">\n' +
+                                            '<button type="button" class="btn btn-info btn-sm" data-toggle="modal">\n' +
+                                            'télécharger\n' +
+                                            '</button></a>';
+                                        btn += ' <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#mail9">\n' +
+                                            'envoi\n' +
+                                            '</button>';
+                                        $('#'+count).find('.download').html(btn)
+                                    }
+                                }
+
+
+                                $('.paginate').on('click', function postinput(){
+                                    $('.paginate').removeClass('disabled')
+                                    $(this).addClass('disabled')
+                                    let page = $(this).html().trim();
+                                    console.log(page)
+
+                                    var matchvalue = $(this).val(); // this.value
+                                    $.ajax({
+                                        url: 'history/place/'+page,
+
+                                        type: 'get'
+                                    }).done(function(responseData) {
+
+                                        let count = 1
+                                        responseData.forEach(
+                                            function(element){
+                                                generateLine(element, count)
+                                                count++;
+                                            }
+                                        )
+
+                                    }).fail(function() {
+                                        console.log('Failed');
+                                    });
+                                });
+                                $( "#datepicker" ).datepicker();
+                                $( "#datepicker" ).on('change', function postinput(){
+                                    let day = $(this).val()
+
+
+                                    console.log(rowCount)
+
+
+                                    $.ajax({
+                                        url: 'historydate/place/'+day,
+                                        type: 'get'
+                                    }).done(function(responseData) {
+                                        let count = 1
+                                        responseData.forEach(
+                                            function(element){
+                                                generateLine(element, count)
+                                                count++;
+                                            }
+                                        )
+                                    }).fail(function() {
+                                        console.log('Failed');
+                                    });
+                                });
+                            } );
+                        </script>
+                        </head>
+                        <body>
+                        <style>
+
+                            #datepicker{
+                                height : 32px;
+                            }
+
+                            .datep .btn-sm {
+                                width: 66px;
+                                height: 26px;
+                                margin-bottom: 5px;
+
+                            }
+                            .hid{
+                                display:none;
+                            }
+
+                        </style>
+
+                        <script>
+                            $( ".saveBtn" ).click(function() {
+                                $(this).hide()
+
+                                $(this).parent().find('#mailSent').show()
+                                //console.log($( "#listMails" ).append( "," +$('#select-to-two-selectized').val()))
+                                let client = $("#client").val()
+                                // console.log(client)
+                                let mailId = $(this).parent().find('#mailId').val()
+
+                                request = $.ajax({
+                                    url: "/send/"+client+"/"+mailId,
+                                    type: "get",
+
+                                });
+                            });
+                        </script>
+
+                        <script>
+                            let REGEX_EMAIL = '([a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*@' +
+                                '(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)';
+
+                            // let REGEX_EMAIL = '(.*)';
+
+                            var formatName = function(item) {
+                                return $.trim((item.first_name || '') + ' ' + (item.last_name || ''));
+                            };
+
+                            let sel = {
+                                persist: false,
+                                onDelete: function(values, ok = false) {
+                                    return confirm(values.length > 1 ? 'Are you sure you want to remove these ' + values.length + ' items?' : 'Are you sure you want to remove "' + values[0] + '"?');
+                                },
+                                maxItems: null,
+                                valueField: 'email',
+                                labelField: 'name',
+                                searchField: ['first_name', 'last_name', 'email'],
+                                sortField: [
+                                    {field: 'first_name', direction: 'asc'},
+                                    {field: 'last_name', direction: 'asc'}
+                                ],
+
+                                render: {
+                                    item: function(item, escape) {
+                                        var name = formatName(item);
+                                        return '<div>' +
+                                            (name ? '<span class="name">' + escape(name) + '</span>' : '') +
+                                            (item.email ? '<span class="email">' + escape(item.email) + '</span>' : '') +
+                                            '</div>';
+                                    },
+                                    option: function(item, escape) {
+                                        var name = formatName(item);
+                                        var label = name || item.email;
+                                        var caption = name ? item.email : null;
+                                        return '<div>' +
+                                            '<span class="label">' + escape(label) + '</span>' +
+                                            (caption ? '<span class="caption">' + escape(caption) + '</span>' : '') +
+                                            '</div>';
+                                    }
+                                },
+                                createFilter: function(input) {
+
+                                    var regexpA = new RegExp('^' + REGEX_EMAIL + '$', 'i');
+                                    var regexpB = new RegExp('^([^<]*)\<' + REGEX_EMAIL + '\>$', 'i');
+                                    return regexpA.test(input) || regexpB.test(input);
+                                },
+                                create: function(input) {
+                                    if ((new RegExp('^' + REGEX_EMAIL + '$', 'i')).test(input)) {
+                                        $( "#listMail" ).append( "," +$('#select-to-two-selectized').val());
+                                        $( "#listMails" ).val( $( "#listMails" ).val() +','+$('#select-to-two-selectized').val());
+
+
+                                        return {email: input};
+                                    }
+                                    var match = input.match(new RegExp('^([^<]*)\<' + REGEX_EMAIL + '\>$', 'i'));
+                                    if (match) {
+                                        var name       = $.trim(match[1]);
+                                        var pos_space  = name.indexOf(' ');
+                                        var first_name = name.substring(0, pos_space);
+                                        var last_name  = name.substring(pos_space + 1);
+
+                                        return {
+                                            email: match[2],
+                                            first_name: first_name,
+                                            last_name: last_name
+                                        };
+                                    }
+                                    alert('Invalid email address.');
+                                    return false;
+                                }
+                            };
+
+                            $('#select-to').selectize(sel);
+                            $('#select-to-two').selectize(sel);
+
+
+                            $( "#target" ).click(function() {
+                                console.log( "Handler for .click() called." );
+                            });
+
+                        </script>                                </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div><span style="position: absolute; top: -99999px; left: -99999px; width: auto; padding: 0px; white-space: pre;">Destinataires externes pour envoi manuel</span>
+
+<script type="text/javascript" src="./Rapport de production_files/main.js"></script>
+
+           </body></html>

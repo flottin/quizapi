@@ -2,8 +2,10 @@
 // src/Command/SendReportCommand.php
 namespace App\Command;
 
+use App\Entity\Client;
 use App\Entity\Mailing;
 use App\Entity\Type;
+use App\Service\History;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -16,11 +18,15 @@ class SendReportCommand extends Command
     protected static $defaultName = 'report:send';
 
     private $em;
+    private $historyService;
 
-    public function __construct(ObjectManager $em)
+    public function __construct(ObjectManager $em
+    , History $historyService
+    )
     {
         parent::__construct ();
         $this->em = $em;
+        $this->historyService = $historyService;
 
     }
 
@@ -34,6 +40,17 @@ class SendReportCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+
+
+        $client = $this->em->getRepository (Client::class)->findOneBy(['name' => $input->getArgument ('client')]);
+        $type = $this->em->getRepository (Type::class)->findOneBy(['type'=>'auto']);
+        for($i = 100; $i < 150 ; $i++)
+        $this->historyService->setHistory ($client,  'path ' . $i, 'mail message ééééé', $type);
+
+
+
+            die;
+
         //get message
 
         //get mailing list

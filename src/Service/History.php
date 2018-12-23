@@ -5,28 +5,62 @@ use App\Entity\Client;
 use App\Entity\Type;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Question;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class History
 {
-    private $em;
+    protected $em;
 
-    public function __construct ( ObjectManager $em  = null)
+
+    public function __construct ( ObjectManager $em  = null, RequestStack $request)
     {
         $this->em = $em;
     }
 
-    /**
-     * @param null $limit
-     * @return array
-     */
-    public function getQuestions ($limit = null)
+
+    public function getHistory ($client, int $page, $max = 20)
     {
-        return $this->em
-            ->getRepository ( Question::class )
-            ->findBy ([], null, $limit);
+
+        $start = $page * $max - $max;
+        $maximum = $start + $max;
+        $res = $this->em
+            ->getRepository (\App\Entity\History::class)
+            ->search($client, null, $start, $maximum);
+
+
+        $count = count($res);
+        $result = [];
+        foreach($res as $history){
+            $result [] = $history;
+        }
+        while ($count < $max){
+            $result [] = 'null';
+            $count++;
+        }
+        return $result;
 
     }
 
+
+    public function getHistoryByDate ($client, $date, $max = 20)
+    {
+        $res =  $this->em
+            ->getRepository (\App\Entity\History::class)
+            ->search($client, $date);
+
+        $count = count($res);
+        $result = [];
+        foreach($res as $history){
+            $result [] = $history;
+        }
+        while ($count < $max){
+            $result [] = 'null';
+            $count++;
+        }
+        return $result;
+
+    }
 
     public function setHistory(Client $client, String $pdfPath, String $mail, Type $type)
     {
@@ -41,25 +75,5 @@ class History
         $this->em->flush();
 
     }
-
-
-    public function setCmd(){
-        //        $type = new Type();
-        //        $type->setType('auto');
-        //        $em->persist($type);
-        //
-        //        $type = new Type();
-        //        $type->setType('manuel');
-        //        $em->persist($type);
-        //$em->flush();
-
-        $client = $this->em->getRepository (Client::class)->find(1);
-        $type = $this->em->getRepository (Type::class)->find(2);
-        $name = $client->getName();
-            //$historyService->setHistory ($client, "/web/clients/$name/pdf/rapport.pdf", 'texte mail', $type);
-
-
-    }
-
 
 }

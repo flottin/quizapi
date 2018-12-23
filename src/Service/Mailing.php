@@ -5,14 +5,16 @@ use App\Entity\Client;
 use App\Entity\Type;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Question;
+use Symfony\Component\HttpFoundation\RequestStack;
 
-class Mailing
+class Mailing extends CommonService
 {
-    private $em;
+    protected $em;
 
-    public function __construct ( ObjectManager $em  = null)
+    public function __construct ( ObjectManager $em  = null, RequestStack $request)
     {
         $this->em = $em;
+        //parent::__construct ($em, $request);
     }
 
     /**
