@@ -21,23 +21,16 @@ class History
 
     public function getHistory ($client, int $page, $max = 20)
     {
-
         $start = $page * $max - $max;
-        $maximum = $start + $max;
         $res = $this->em
             ->getRepository (\App\Entity\History::class)
-            ->search($client, null, $start, $maximum);
+            ->search($client, null, $start, $max);
 
-
-        $count = count($res);
         $result = [];
-        foreach($res as $history){
-            $result [] = $history;
+        for ($i = 0 ; $i < $max ; $i++){
+            $result [] = isset ($res[$i]) ? $res[$i] : null;
         }
-        while ($count < $max){
-            $result [] = 'null';
-            $count++;
-        }
+
         return $result;
 
     }
@@ -49,14 +42,9 @@ class History
             ->getRepository (\App\Entity\History::class)
             ->search($client, $date);
 
-        $count = count($res);
         $result = [];
-        foreach($res as $history){
-            $result [] = $history;
-        }
-        while ($count < $max){
-            $result [] = 'null';
-            $count++;
+        for ($i = 0 ; $i < $max ; $i++){
+            $result [] = isset ($res[$i]) ? $res[$i] : null;
         }
         return $result;
 

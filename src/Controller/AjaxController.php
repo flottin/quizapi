@@ -3,72 +3,59 @@
 namespace App\Controller;
 
 use App\Entity\Client;
-use App\Entity\Mailing;
-use App\Entity\Type;
-use App\Service\Common;
 use App\Service\History;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-
-use Symfony\Component\HttpFoundation\RequestStack;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class AjaxController extends AbstractController
 {
-    private $request;
 
-    private $historyService;
+    private  $historyService;
 
-    private $mailingService;
+    protected $container;
+    protected $cache;
 
     public function __construct(
-        RequestStack $request,
-        \Swift_Mailer $mailer,
         History $historyService,
-        ObjectManager $em,
-        \App\Service\Mailing $mailingService
-    ){
+        ObjectManager $em
 
+    ){
         $this->em = $em;
         $this->historyService = $historyService;
-        $this->mailingService = $mailingService;
-
-        //Common::setClient ($em, $request);
-
-        $this->request = $request;
-    }
-    /**
-     * @Route("/historydate/{clientName}/{month}/{day}/{year}")
-     */
-    public function index($clientName = 'place', $month, $day, $year)
-    {
-        $client = $this->em->getRepository (Client::class)
-            ->findOneBy(['name' => $clientName]);
-
-        $date = "$year-$month-$day";
-
-        $objDateTime = new \DateTime($date);
-
-
-
-
-        $res = $this->historyService->getHistoryByDate ($client, $objDateTime);
-        return $this->json($res);
-
 
     }
-
     /**
-     * @Route("/history/{clientName}/{page}")
+     * @Route("/history/{name}/{page}", requirements={"page"="\d+"})
+     * @ParamConverter("client", options={"mapping": {"name": "name"}})
+     * @param Client $client
+     * @param int $page
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function historyPage($clientName = 'place', $page)
+    public function historyPage(Client $client, int $page)
     {
-        $client = $this->em->getRepository (Client::class)
-            ->findOneBy(['name' => $clientName]);
-
         $res = $this->historyService->getHistory ($client, $page);
         return $this->json($res);
 
 
     }
+
+    /**
+     * @param Client $client
+     * @param \DateTime $date
+     * @Route("/history/{name}/{date}")
+     * @ParamConverter("date", options={"format": "Y-m-d"})
+     * @ParamConverter("client", options={"mapping": {"name": "name"}})
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function index(Client $client, \DateTime $date)
+    {
+        $res = $this->historyService->getHistoryByDate ($client, $date);
+        return $this->json($res);
+
+
+    }
+
+
 }
