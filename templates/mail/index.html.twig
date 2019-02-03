@@ -1956,11 +1956,15 @@ A noter, les tableaux Chorus et Atlas présentent parfois une valeur erronée de
 
                         <p class="datep">
 
-                            Recherche par date : <input type="text" id="datepicker" placeholder="cliquez!">
+                            Recherche par date : <input type="text" class="datepicker form-control" id="datepicker" placeholder="cliquez!">
                             <br>
                             <br>
 
                             Nombre de rapports générés : {{ countHistory }} / nombre de pages : {{ pages }} <br>
+
+
+
+
                             {% if pages > 0 %}
 
 
@@ -1969,17 +1973,25 @@ A noter, les tableaux Chorus et Atlas présentent parfois une valeur erronée de
                             {% if pages < max %}
                                 {% set max = pages %}
                             {% endif %}
-                                <span class="btn btn-info btn-sm disabled first " > <<  </span>
-                                <span class="btn btn-info btn-sm disabled previous " > <  </span>
-                                <span class="btn btn-info btn-sm  next" > >  </span>
-                                <span class="btn btn-info btn-sm   last " id="last"> >>  </span>
-                                <span class="btn btn-info btn-sm  max hid " >{{  pages }}</span>
 
+                                <nav id='butPaginate' aria-label="Page navigation example">
+                                    <span class="btn btn-info btn-sm max hid " >{{  pages }}</span>
+                                    <ul class="pagination justify-content-center">
+                                {#<span class="btn btn-info btn-sm disabled first " > <<  </span>#}
+                                {#<span class="btn btn-info btn-sm disabled previous " > <  </span>#}
+                                {#<span class="btn btn-info btn-sm next" > >  </span>#}
+                                {#<span class="btn btn-info btn-sm last " id="last"> >>  </span>#}
+
+                                        <li class="page-item disabled first"><a class="page-link"  tabindex="-1"> << </a></li>
+                                        <li class="page-item disabled previous"><a class="page-link"  tabindex="-1"> < </a></li>
                             {% for i in 1..max %}
-
-                                <span class="btn btn-info btn-sm paginate " id="p{{ loop.index }}"> {{ i }} </span>
+                                <li class="page-item " ><a class="page-link paginate" id="p{{ i }}">{{ i }}</a></li>
+                                {#<span class="btn btn-info btn-sm paginate " >  </span>#}
                             {% endfor %}
-
+                                        <li class="page-item next"><a class="page-link"  tabindex="-1"> > </a></li>
+                                        <li class="page-item last"><a class="page-link"  tabindex="-1"> >> </a></li>
+                                    </ul>
+                                </nav>
 
                             {% endif %}
 
@@ -2003,10 +2015,12 @@ A noter, les tableaux Chorus et Atlas présentent parfois une valeur erronée de
                                 {% set date = '' %}
                                 {% set time = '' %}
                                 {% set rapport = '' %}
+                                {% if row != null %}
                                 {% if row != 'null' %}
                                     {% set date = row.getDateTime()|date("d-m-Y") %}
                                     {% set time = row.getDateTime()|date("H:i:s") %}
                                     {% set rapport = 'Rapport du:' %}
+                                {% endif %}
                                 {% endif %}
 
                                 <tr id="{{ loop.index }}" style="height:47px;">
@@ -2045,8 +2059,10 @@ A noter, les tableaux Chorus et Atlas présentent parfois une valeur erronée de
                                 let id = 1
                                 let num = 7
                                 let rowCount = {{ countHistory }}
+
+
 manageControl = function(){
-    if ($('#p1').html() == '1'){
+    if ($('#max').html() == '1'){
         $('.first').addClass('disabled')
         $('.previous').addClass('disabled')
     } else {
@@ -2161,7 +2177,10 @@ manageControl = function(){
                                         console.log('Failed');
                                     });
                                 });
-                                $( "#datepicker" ).datepicker();
+                                $( "#datepicker" ).datepicker({
+                                    dateFormat: "dd-mm-yy"
+                                });
+
                                 $( "#datepicker" ).on('change', function postinput(){
                                     let day = $(this).val()
 
@@ -2170,7 +2189,7 @@ manageControl = function(){
 
 
                                     $.ajax({
-                                        url: 'historydate/place/'+day,
+                                        url: 'history/place/'+day,
                                         type: 'get'
                                     }).done(function(responseData) {
                                         let count = 1
@@ -2316,3 +2335,34 @@ manageControl = function(){
 <script type="text/javascript" src="./Rapport de production_files/main.js"></script>
 
            </body></html>
+
+
+
+
+<input type="text" id="id">
+<div id="res"></div>
+
+<script>
+    $( "#id" ).click(function() {
+        console.log($('#id').val())
+        $.ajax({
+            url: "/history/"+$('#id').val(),
+
+            success: function (result) {
+
+                $('#res').html(result.mailMessage)
+            },
+            error : function (result) {
+                console.log('error')
+            console.log(result.status)
+                $('#res').html('not exists!')
+            },
+        });
+    });
+
+</script>
+
+
+<p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
+
+<p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
