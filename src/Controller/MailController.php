@@ -6,34 +6,70 @@ use App\Entity\Client;
 use App\Entity\Mailing;
 use App\Entity\Type;
 use App\Service\Common;
+use App\Service\FtpService;
 use App\Service\History;
 use App\Service\PaginateService;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 
+/**
+ * Class MailController
+ * @package App\Controller
+ */
 class MailController extends AbstractController
 {
-private $request;
-private $historyService;
-private $mailingService;
-private $paginateService;
+    /**
+     * @var RequestStack
+     */
+    private $request;
+    /**
+     * @var History
+     */
+    private $historyService;
+    /**
+     * @var \App\Service\Mailing
+     */
+    private $mailingService;
+    /**
+     * @var PaginateService
+     */
+    private $paginateService;
+    private $tpService;
 
+    /**
+     * MailController constructor.
+     * @param RequestStack $request
+     * @param \Swift_Mailer $mailer
+     * @param History $historyService
+     * @param ObjectManager $em
+     * @param \App\Service\Mailing $mailingService
+     * @param PaginateService $paginateService
+     */
     public function __construct(
         RequestStack $request,
         \Swift_Mailer $mailer,
         History $historyService,
         ObjectManager $em,
     \App\Service\Mailing $mailingService,
-    PaginateService $paginateService
+    PaginateService $paginateService,
+    FtpService $ftpService
     ){
 
         $this->em = $em;
         $this->historyService = $historyService;
         $this->mailingService = $mailingService;
         $this->paginateService = $paginateService;
+        $this->ftpService = $ftpService;
 
         Common::setClient ($em, $request);
 
@@ -51,8 +87,44 @@ private $paginateService;
 
         $this->request = $request;
     }
+
+
     /**
-     * @Route("/{clientName}")
+     * @Route("/form/{id}")
+
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function form($id, Request $request)
+    {
+$history = new \App\Entity\History();
+
+
+
+dump($request);
+
+
+
+        $form = $this->createFormBuilder($history)
+
+            ->add('client', TextType::class)
+            ->add('dateTime', DateType::class)
+            ->add('mailMessage')
+            ->add('pdfPath')
+            ->add('submit', SubmitType::class, array('label' => 'Create Task'))
+            ->getForm();
+
+        return $this->render('form.html.twig', array(
+            'form' => $form->createView(),
+        ));
+
+    }
+
+
+
+    /**
+     * @Route("/mail/{clientName}")
      */
     public function index($clientName = 'place')
     {
@@ -71,41 +143,43 @@ private $paginateService;
     }
 
     /**
-     * @Route("/mail/{clientName}")
+     * @Route("/file/{name}/{id}", requirements={"page"="\d+"})
+     * @ParamConverter("client", options={"mapping": {"name": "name"}})
+     * @param Client $client
+     * @param int $id
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse|void
      */
-    public function index2($clientName = null)
+    public function fileAction(Client $client, int $id)
     {
-        print_r(Common::getClient ());
+
+        $dir = 'rapports_mpe';
+
+        $file = '/Users/flottin/PhpstormProjects/quizapi/pdf/Rapport_production_PLACE-ORME-20190204-1641.pdf';
+        $remote_file = "/home/flottin/".$dir . '/Rapport_production_PLACE-ORME-20190204-1641.pdf';
 
 
-print_r  ($this->historyService->getHistory ());
-        die;
+        $this->ftpService->setHost ('192.168.0.24');
+        $this->ftpService->setLogin ('flottin');
+        $this->ftpService->setPass ('bb');
+        $this->ftpService->connect ();
+        $this->ftpService->put($remote_file, $file);
 
+        $tmppdf = '/Users/flottin/PhpstormProjects/quizapi/var/pdf/';
+        $file = $tmppdf . 'Rapport_production_PLACE-ORME-20190204-1641.pdf';
 
-        $client = $this->em->getRepository (Client::class)->findOneBy(['name' => $clientName]);
-
-        $history = $this->em->getRepository (\App\Entity\History::class)->findBy(['client' => $client]);
-        $mailings = $this->em->getRepository (Mailing::class)->findBy(['client' => $client]);
-
-        $listAuto = [];
-        $listManuel = [];
-        foreach($mailings as $mail){
-            if($mail->getType()->getType() === 'auto'){
-                $listAuto [] = $mail->getMail();
-
-            } else {
-                $listManuel [] = $mail->getMail();
-
-            }
+        $pdfPath = $this->ftpService->get($remote_file, $file);
+        if(empty($pdfPath)){
+            die('no file!');
         }
+        return $this->file($pdfPath);
 
-        $auto = implode(',', $listAuto);
-        $manuel = implode(',', $listManuel);
-        return $this->render('mail/index.html.twig', array(
-            'history' => $history,
-            'listManuel' => $manuel,
-            'listAuto' => $auto,
-        ));
+die;
+
+
+$history = $this->em->getRepository (\App\Entity\History::class)->find ($id);
+
+dump($history); die;
+
     }
 
 
