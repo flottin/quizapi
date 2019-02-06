@@ -157,11 +157,7 @@ dump($request);
         $file = '/Users/flottin/PhpstormProjects/quizapi/pdf/Rapport_production_PLACE-ORME-20190204-1641.pdf';
         $remote_file = "/home/flottin/".$dir . '/Rapport_production_PLACE-ORME-20190204-1641.pdf';
 
-
-        $this->ftpService->setHost ('192.168.0.24');
-        $this->ftpService->setLogin ('flottin');
-        $this->ftpService->setPass ('bb');
-        $this->ftpService->connect ();
+        $this->ftpService->connect ($client);
         $this->ftpService->put($remote_file, $file);
 
         $tmppdf = '/Users/flottin/PhpstormProjects/quizapi/var/pdf/';

@@ -1,6 +1,9 @@
 <?php
 namespace App\Service;
 
+use App\Entity\Client;
+use Psr\Container\ContainerInterface;
+
 class FtpService
 {
 
@@ -8,23 +11,29 @@ class FtpService
     private $login;
     private $pass;
     private $conn_id;
+    private $container;
 
-    public function connect(){
-        $dir = 'rapports_mpe';
+    public function __construct (
+        ContainerInterface $container
+    )
+    {
+        $this->container = $container;
+    }
+
+    public function getConfig($client){
+        $config = $this->container->getParameter($client->getName ());
+        return $config['ftp'];
+
+    }
+    public function connect(Client $client){
+        $ftp = self::getConfig($client);
+
+
+        $this->setHost ('192.168.0.24');
+        $this->setLogin ('flottin');
+        $this->setPass ('bb');
         $this->conn_id = ftp_connect($this->host);
         $login_result = ftp_login($this->conn_id, $this->login, $this->pass);
-
-        if(in_array("/home/flottin/".$dir, ftp_nlist($this->conn_id, "/home/flottin/"))){
-            //echo "Le dossier $dir existe<br>";
-
-        } else {
-
-            if (ftp_mkdir($this->conn_id, "/home/flottin/".$dir)) {
-                //echo "Le dossier $dir a été créé avec succès<br>";
-            } else {
-                //echo "Il y a eu un problème lors de la création du dossier $dir<br>";
-            }
-        }
     }
 
     public function put($remote_file, $file){
@@ -61,6 +70,28 @@ class FtpService
             echo "Le fichier $file n'existe pas! <br>";
             return null;
         }
+    }
+
+    public function putRecursive($src_dir, $dst_dir) {
+        $d = dir($src_dir);
+        while($file = $d->read()) {
+            if ($file != "." && $file != "..") {
+                if (is_dir($src_dir."/".$file)) {
+                    if (!@ftp_chdir($this->conn_id, $dst_dir."/".$file)) {
+                        ftp_mkdir($this->conn_id, $dst_dir."/".$file);
+                    }
+                    self::putRecursive($src_dir."/".$file, $dst_dir."/".$file);
+                } else {
+                    ftp_put(
+                        $this->conn_id,
+                        $dst_dir."/".$file,
+                        $src_dir."/".$file,
+                        FTP_BINARY
+                    );
+                }
+            }
+        }
+        $d->close();
     }
 
     /**
