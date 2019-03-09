@@ -7,17 +7,41 @@ use App\Entity\History;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
-/**
- * @method Question|null find($id, $lockMode = null, $lockVersion = null)
- * @method Question|null findOneBy(array $criteria, array $orderBy = null)
- * @method Question[]    findAll()
- * @method Question[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
- */
+
 class HistoryRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, History::class);
+    }
+
+    public function findAll()
+    {
+
+        $queryBuilder = $this->createQueryBuilder('c')
+            ->select('c')
+            ->orderBy('c.id');
+
+        $max = 30;
+        //$max = -1;
+        $limit = 100;
+        $offset = 0;
+        $count = 0;
+        while (true) {
+            $queryBuilder->setFirstResult($offset);
+            $queryBuilder->setMaxResults($limit);
+            $entities = $queryBuilder->getQuery()->getResult ();
+            if (count($entities) === 0) {
+                break;
+            }
+            foreach ($entities as $entity) {
+                if ($count >= $max && $max !== -1) break 2;
+                yield $entity;
+                $this->_em->detach($entity);
+                $count ++;
+            }
+            $offset += $limit;
+        }
     }
 
     public function search(Client $client, \DateTime $date = null, $start = 0, $max = 20)
