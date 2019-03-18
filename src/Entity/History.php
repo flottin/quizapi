@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Serializer\Annotation\Groups;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\HistoryRepository")
  */
@@ -13,16 +15,19 @@ class History
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"group1"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"group1"})
      */
     private $pdfPath;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"group1"})
      */
     private $dateTime;
 
@@ -34,8 +39,9 @@ class History
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="Client")
+     * @ORM\ManyToOne(targetEntity="Client", inversedBy="histories")
      * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
+     * * @Groups({"group1"})
      */
     private $client;
 
