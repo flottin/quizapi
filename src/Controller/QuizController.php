@@ -55,7 +55,9 @@ class QuizController extends AbstractController
     }
 
     public function cleanNode($str){
-        return "\t" . str_replace ("\n", '', str_replace ('<?xml version="1.0"?>', '', $str))  . "\n";
+        $res = str_replace ('<?xml version="1.0"?>', '', $str);
+        $res = str_replace ("\n", '', $res);
+        return "\t". $res. "\n";
     }
 
     /**
